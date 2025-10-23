@@ -1,0 +1,103 @@
+.courses-section {
+  position: relative;
+  padding: 100px 20px;
+  background: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1920&q=80') center/cover fixed no-repeat;
+  color: #000;
+  text-align: center;
+  overflow: hidden;
+}
+
+.courses-section .overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(to right, #f1f1ef 0%, #e2e2de 100%);
+  z-index: 1;
+}
+
+.courses-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.section-title {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.section-subtitle {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 60px;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Flip Cards */
+.flip-card {
+  perspective: 1000px;
+  background: transparent;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: relative;
+  backface-visibility: hidden;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #222;
+}
+
+.flip-card-front {
+  z-index: 2;
+}
+
+.flip-card-back {
+  position: absolute;
+  top: 0; left: 0;
+  transform: rotateY(180deg);
+  width: 100%; height: 100%;
+  text-align: center;
+}
+
+.course-icon {
+  font-size: 48px;
+  color: #2575fc;
+  margin-bottom: 20px;
+}
+
+
+.btn-primary:hover {
+  background: #2575fc;
+  box-shadow: 0 4px 15px rgba(37, 117, 252, 0.2);  
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section-title { font-size: 32px; }
+  .courses-grid { grid-template-columns: 1fr; }
+}

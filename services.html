@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Français avec Albina - Services</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- Flatpickr CSS для календаря -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="services.css" />
+</head>
+<body>
+  <!-- ============================================ -->
+  <!-- NAVBAR - Навигационная панель -->
+  <!-- ============================================ -->
+  <nav class="navbar">
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="#" class="logo" aria-label="Français avec Albina — Accueil">
+      <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+      <span>Français avec Albina</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" data-key="home">Accueil</a></li>
+      <li><a href="cours.html" data-key="courses">Cours</a></li>
+      <li><a href="services.html" data-key="services">Services</a></li>
+      <li><a href="ressources.html" data-key="resources">Ressources</a></li>
+      <li><a href="a-propos.html" data-key="about">À propos</a></li>
+    </ul>
+    <!-- Селектор языка -->
+    <div class="language-selector">
+      <button onclick="changeLanguage('fr')">FR</button>
+      <button onclick="changeLanguage('ru')">RU</button>
+      <button onclick="changeLanguage('en')">EN</button>
+    </div>
+  </nav>
+
+  <!-- ============================================ -->
+  <!-- SERVICES SECTION - Секция с услугами -->
+  <!-- ============================================ -->
+  <section class="services-section parallax">
+    <div class="overlay"></div>
+    <div class="container">
+      <h1 class="section-title">Services proposés</h1>
+      <p class="section-subtitle">Découvrez les services supplémentaires que je propose pour vous accompagner dans votre vie quotidienne en France.</p>
+
+      <!-- Сетка карточек услуг -->
+      <div class="services-grid">
+        
+        <!-- Карточка 1: Traduction orale -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <!-- Лицевая сторона карточки -->
+            <div class="flip-card-front">
+              <div class="service-icon"><i class="fas fa-comments"></i></div>
+              <h3>Traduction orale</h3>
+              <p>Appels téléphoniques, rendez-vous médicaux, assistance immédiate.</p>
+            </div>
+            <!-- Обратная сторона карточки -->
+            <div class="flip-card-back">
+              <p>Traduction orale (téléphonique ou en personne).<br><strong>20€ / heure</strong></p>
+              <button class="btn btn-primary" onclick="openModal('oral')">Demander</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Карточка 2: Traduction écrite -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <!-- Лицевая сторона карточки -->
+            <div class="flip-card-front">
+              <div class="service-icon"><i class="fas fa-file-alt"></i></div>
+              <h3>Traduction écrite</h3>
+              <p>Traduction de documents, lettres, attestations, formulaires.</p>
+            </div>
+            <!-- Обратная сторона карточки -->
+            <div class="flip-card-back">
+              <p>Traduction de documents (PDF, DOCX, etc).<br><strong>20€ / page</strong></p>
+              <button class="btn btn-primary" onclick="openModal('ecrite')">Demander</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Карточка 3: Accompagnement administratif -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <!-- Лицевая сторона карточки -->
+            <div class="flip-card-front">
+              <div class="service-icon"><i class="fas fa-hands-helping"></i></div>
+              <h3>Accompagnement physique <span class="badge bg-warning text-dark">Amiens Métropole</span></h3>
+              <p>Soutien pour démarches en présentiel dans les administrations.</p>
+            </div>
+            <!-- Обратная сторона карточки -->
+            <div class="flip-card-back">
+              <p>Séance d'accompagnement à Amiens Métropole.<br><strong>50€ / heure</strong></p>
+              <button class="btn btn-primary" onclick="openModal('admin')">Demander</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- ============================================ -->
+  <!-- MODAL CONTAINER - Контейнер для модальных окон -->
+  <!-- ============================================ -->
+  <div id="modalContainer"></div>
+
+  <!-- ============================================ -->
+  <!-- FOOTER - Подвал сайта -->
+  <!-- ============================================ -->
+  <footer class="footer-section">
+    <div class="footer-container">
+      <!-- О компании -->
+      <div class="footer-about">
+        <div class="footer-logo">Français avec Albina</div>
+        <p>Cours de français professionnels en ligne avec un professeur expérimenté vivant en France. Approche individuelle et résultats garantis.</p>
+        <div class="contact-info">
+          <p><i class="fas fa-envelope"></i> contact@francais-albina.fr</p>
+          <p><i class="fas fa-clock"></i> Lun-Sam: 09:00 - 20:00</p>
+          <p><i class="fas fa-map-marker-alt"></i> Cours en ligne via Zoom/Skype</p>
+        </div>
+      </div>
+      
+      <!-- Newsletter -->
+      <div class="footer-newsletter">
+        <h3 class="footer-heading">Newsletter</h3>
+        <div class="newsletter">
+          <p>Join Our Email List for Tips and Useful Information</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter Your E-mail">
+            <button type="submit">SUBSCRIBE</button>
+          </form>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Gallery -->
+      <div class="footer-gallery">
+        <h3 class="footer-heading">Gallery</h3>
+        <div class="gallery">
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=200&q=80"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=200&q=80"></div>
+          <div class="gallery-item"><img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=200&q=80"></div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Нижняя часть футера -->
+    <div class="footer-bottom">
+      <p>© 2025 Français avec Albina. Tous droits réservés</p>
+      <div class="footer-bottom-links">
+        <a href="#">Politique de confidentialité</a>
+        <a href="#">Conditions d'utilisation</a>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- ============================================ -->
+  <!-- SCRIPTS - Подключение скриптов -->
+  <!-- ============================================ -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Flatpickr для календаря -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
+  <script src="script.js"></script>
+  <script src="services.js"></script>
+</body>
+</html>

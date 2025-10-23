@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Français avec Albina</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <!-- Hamburger Menu for Mobile -->
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Logo with Eiffel Tower Icon -->
+   <a href="#" class="logo" aria-label="Français avec Albina — Accueil">
+      <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+      <span>Français avec Albina</span>
+    </a>
+
+    <!-- Navigation Links -->
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#" data-key="home">Accueil</a></li>
+      <li><a href="cours.html" data-key="courses">Cours</a></li>
+      <li><a href="services.html" data-key="services">Services</a></li>
+      <li><a href="#" data-key="resources">Ressources</a></li>
+      <li><a href="#" data-key="about">À propos</a></li>
+    </ul>
+
+    <!-- Language Selector -->
+    <div class="language-selector">
+      <button onclick="changeLanguage('fr')" aria-label="Français">FR</button>
+      <button onclick="changeLanguage('ru')" aria-label="Русский">RU</button>
+      <button onclick="changeLanguage('en')" aria-label="English">EN</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero ">
+      <div class="hero-content">
+          <div class="teacher-image">
+              <img src="/Var1/BezFonaKop.png" alt="Teacher Albina">
+          </div>
+          <div class="hero-text">
+              <h1>Professional Business Education for You</h1>
+              <p>Business School delivers online study programs with Diploma Awards to learners from all corners of the world.</p>
+              <a href="#" class="btn">LEARN MORE</a>
+          </div>
+      </div>
+  </section>
+
+ <!-- MOTIVATION SECTION -->
+  <section class="motivation">
+    <div class="container">
+      <h2>Pourquoi apprendre le français ?</h2>
+      <div class="reasons-grid">
+        <div class="reason-card" data-aos="fade-up">
+          <div class="reason-icon">
+            <i class="fas fa-briefcase"></i>
+          </div>
+          <h3>Opportunités Professionnelles</h3>
+          <p>Le français est parlé dans 29 pays et ouvre les portes des organisations internationales et des entreprises multinationales.</p>
+        </div>
+        
+        <div class="reason-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="reason-icon">
+            <i class="fas fa-globe-europe"></i>
+          </div>
+          <h3>Voyage et Culture</h3>
+          <p>Explorez la France, le Canada, la Suisse et de nombreux autres pays francophones en toute confiance.</p>
+        </div>
+        
+        <div class="reason-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="reason-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3>Développement Cérébral</h3>
+          <p>L'apprentissage d'une langue étrangère améliore la mémoire, la concentration et les capacités d'analyse.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+ <!-- ======================== LANGUAGE TEST SECTION (with Parallax) ======================== -->
+  <section class="language-test-section parallax" id="test">
+    <div class="overlay"></div>
+    <div class="content" data-aos="fade-up">
+      <div class="test-icon-animated">
+        <i class="fas fa-clipboard-check"></i>
+      </div>
+      <h1 data-translate="test_title">Découvrez votre niveau de français</h1>
+      <p data-translate="test_subtitle">Passez notre test gratuit et recevez une évaluation précise de votre niveau avec des recommandations personnalisées.</p>
+      <a href="#" class="btn btn-test" data-translate="test_button">PASSER LE TEST</a>
+    </div>
+  </section>
+
+<!-- ------------->
+
+<!-- ======================== WHY LEARN WITH ALBINA (3 Cards with Flip Effect) ======================== -->
+  <section class="about-teacher" id="about-teacher">
+    <div class="container">
+      <h2 data-translate="about_title">Pourquoi apprendre avec Albina ?</h2>
+      <div class="flip-cards-grid">
+        
+        <!-- Card 1: Native Speaker -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-icon">
+                <i class="fas fa-globe-europe"></i>
+              </div>
+              <h3 data-translate="about_card1_title">20 ans en France</h3>
+            </div>
+            <div class="flip-card-back">
+              <p data-translate="about_card1_text">Vit et travaille en France depuis plus de deux décennies. Connaissance approfondie de la langue et de la culture française moderne.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Teaching Experience -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-icon">
+                <i class="fas fa-chalkboard-teacher"></i>
+              </div>
+              <h3 data-translate="about_card2_title">10 ans d'expérience</h3>
+            </div>
+            <div class="flip-card-back">
+              <p data-translate="about_card2_text">Plus de 10 ans d'enseignement du français aux adultes et aux enfants. Méthodes éprouvées et résultats garantis.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Individual Approach -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="flip-icon">
+                <i class="fas fa-user-friends"></i>
+              </div>
+              <h3 data-translate="about_card3_title">Approche personnalisée</h3>
+            </div>
+            <div class="flip-card-back">
+              <p data-translate="about_card3_text">Programme adapté à vos objectifs et votre niveau. Soutien constant et atmosphère bienveillante pour chaque élève.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- TESTIMONIALS SECTION -->
+<section class="testimonials">
+  <div class="container">
+    <h2>Ils ont appris avec moi</h2>
+
+    <div class="testimonial-slider">
+      <div class="testimonial-track" id="testimonialTrack">
+
+        <div class="testimonial-slide active">
+          <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">
+              Business School provides great resources and education programs for executives and company owners.
+              I am glad to be one of the Business Strategy Course graduates.
+            </p>
+            <div class="testimonial-author">
+              <strong>Lillian Nelson</strong>
+              <span>Chief Executive Officer</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">
+              Les cours d'Albina ont transformé mon approche du français. En seulement 3 mois, je peux maintenant
+              participer aux réunions en français avec confiance.
+            </p>
+            <div class="testimonial-author">
+              <strong>Marc Dubois</strong>
+              <span>Directeur Marketing</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">
+              Une méthode d'enseignement exceptionnelle qui s'adapte parfaitement aux besoins professionnels.
+              Je recommande vivement!
+            </p>
+            <div class="testimonial-author">
+              <strong>Sophie Martin</strong>
+              <span>Entrepreneure</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Контейнер точек-переключателей -->
+      <div class="testimonial-controls">
+        <div class="testimonial-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- FOOTER -->
+  <footer class="footer-section">
+    <div class="footer-container">
+      <!-- About -->
+      <div class="footer-about">
+        <div class="footer-logo" data-translate="footer_logo">Français avec Albina</div>
+        <p data-translate="footer_about">Cours de français professionnels en ligne avec un professeur expérimenté vivant en France. Approche individuelle et résultats garantis.</p>
+        <div class="contact-info">
+          <p><i class="fas fa-envelope"></i> <span data-translate="footer_email">contact@francais-albina.fr</span></p>
+          <p><i class="fas fa-clock"></i> <span data-translate="footer_hours">Lun-Sam: 09:00 - 20:00</span></p>
+          <p><i class="fas fa-map-marker-alt"></i> <span data-translate="footer_location">Cours en ligne via Zoom/Skype</span></p>
+        </div>
+      </div>
+      
+      <div class="footer-newsletter">
+        <h3 class="footer-heading">Newsletter</h3>
+        <div class="newsletter">
+          <p>Join Our Email List for Tips and Useful Information</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter Your E-mail">
+            <button type="submit">SUBSCRIBE</button>
+          </form>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-gallery">
+        <h3 class="footer-heading">Gallery</h3>
+        <div class="gallery">
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Gallery Image 1">
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Gallery Image 2">
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Gallery Image 3">
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Gallery Image 4">
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Gallery Image 5">
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Gallery Image 6">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p data-translate="footer_copyright">© 2025 Français avec Albina. Tous droits réservés</p>
+      <div class="footer-bottom-links">
+        <a href="#" data-translate="footer_privacy">Politique de confidentialité</a>
+        <a href="#" data-translate="footer_terms">Conditions d'utilisation</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

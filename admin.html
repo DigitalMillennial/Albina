@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - Français avec Albina</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+  <!-- ============================================ -->
+  <!-- SIDEBAR - Боковое меню навигации -->
+  <!-- ============================================ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="admin-logo">
+        <i class="fas fa-graduation-cap"></i>
+        <span>Admin Panel</span>
+      </div>
+      <button class="sidebar-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item active" onclick="showSection('dashboard')">
+        <i class="fas fa-chart-line"></i>
+        <span>Dashboard</span>
+      </a>
+      <a href="#" class="nav-item" onclick="showSection('courses')">
+        <i class="fas fa-book"></i>
+        <span>Gestion des cours</span>
+      </a>
+      <a href="#" class="nav-item" onclick="showSection('services')">
+        <i class="fas fa-concierge-bell"></i>
+        <span>Gestion des services</span>
+      </a>
+      <a href="#" class="nav-item" onclick="showSection('bookings')">
+        <i class="fas fa-calendar-check"></i>
+        <span>Réservations</span>
+      </a>
+      <a href="#" class="nav-item" onclick="showSection('students')">
+        <i class="fas fa-users"></i>
+        <span>Étudiants</span>
+      </a>
+      <a href="#" class="nav-item" onclick="showSection('resources')">
+        <i class="fas fa-folder-open"></i>
+        <span>Ressources</span>
+      </a>
+      <a href="#" class="nav-item" onclick="showSection('pages')">
+        <i class="fas fa-file-alt"></i>
+        <span>Pages du site</span>
+      </a>
+      <a href="#" class="nav-item" onclick="showSection('settings')">
+        <i class="fas fa-cog"></i>
+        <span>Paramètres</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="admin-profile">
+        <img src="https://ui-avatars.com/api/?name=Albina&background=2575fc&color=fff" alt="Admin">
+        <div>
+          <div class="admin-name">Albina</div>
+          <div class="admin-role">Administrateur</div>
+        </div>
+      </div>
+      <a href="index.html" class="btn-logout">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Déconnexion</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ============================================ -->
+  <!-- MAIN CONTENT - Основной контент -->
+  <!-- ============================================ -->
+  <main class="main-content">
+    <!-- HEADER -->
+    <header class="top-header">
+      <button class="mobile-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+      </button>
+      <h1 class="page-title" id="pageTitle">Dashboard</h1>
+      <div class="header-actions">
+        <button class="btn-icon" title="Notifications">
+          <i class="fas fa-bell"></i>
+          <span class="badge">3</span>
+        </button>
+        <button class="btn-icon" title="Messages">
+          <i class="fas fa-envelope"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- ============================================ -->
+    <!-- DASHBOARD SECTION - Статистика и обзор -->
+    <!-- ============================================ -->
+    <section id="section-dashboard" class="content-section active">
+      <div class="stats-grid">
+        <!-- Статистика 1: Всего студентов -->
+        <div class="stat-card">
+          <div class="stat-icon blue">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="stat-info">
+            <div class="stat-value">248</div>
+            <div class="stat-label">Étudiants inscrits</div>
+          </div>
+        </div>
+
+        <!-- Статистика 2: Активные курсы -->
+        <div class="stat-card">
+          <div class="stat-icon green">
+            <i class="fas fa-book-open"></i>
+          </div>
+          <div class="stat-info">
+            <div class="stat-value">12</div>
+            <div class="stat-label">Cours actifs</div>
+          </div>
+        </div>
+
+        <!-- Статистика 3: Заявки -->
+        <div class="stat-card">
+          <div class="stat-icon orange">
+            <i class="fas fa-calendar-check"></i>
+          </div>
+          <div class="stat-info">
+            <div class="stat-value">45</div>
+            <div class="stat-label">Réservations ce mois</div>
+          </div>
+        </div>
+
+        <!-- Статистика 4: Доход -->
+        <div class="stat-card">
+          <div class="stat-icon purple">
+            <i class="fas fa-euro-sign"></i>
+          </div>
+          <div class="stat-info">
+            <div class="stat-value">8,450€</div>
+            <div class="stat-label">Revenus ce mois</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Последние заявки -->
+      <div class="dashboard-row">
+        <div class="card">
+          <div class="card-header">
+            <h3>Dernières réservations</h3>
+            <a href="#" onclick="showSection('bookings')">Voir tout</a>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Nom</th>
+                  <th>Cours/Service</th>
+                  <th>Date</th>
+                  <th>Statut</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Marie Dupont</td>
+                  <td>Cours individuel</td>
+                  <td>15/01/2025</td>
+                  <td><span class="badge badge-success">Confirmé</span></td>
+                </tr>
+                <tr>
+                  <td>Jean Martin</td>
+                  <td>Groupe A2</td>
+                  <td>16/01/2025</td>
+                  <td><span class="badge badge-warning">En attente</span></td>
+                </tr>
+                <tr>
+                  <td>Sophie Bernard</td>
+                  <td>Traduction orale</td>
+                  <td>17/01/2025</td>
+                  <td><span class="badge badge-success">Confirmé</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- COURSES SECTION - Управление курсами -->
+    <!-- ============================================ -->
+    <section id="section-courses" class="content-section">
+      <div class="section-header">
+        <h2>Gestion des cours</h2>
+        <button class="btn btn-primary" onclick="openCourseModal()">
+          <i class="fas fa-plus"></i> Ajouter un cours
+        </button>
+      </div>
+
+      <div class="card">
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Nom du cours</th>
+                <th>Niveau</th>
+                <th>Type</th>
+                <th>Prix</th>
+                <th>Durée</th>
+                <th>Statut</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="coursesTableBody">
+              <tr>
+                <td>Cours individuels</td>
+                <td>Tous niveaux</td>
+                <td>Individuel</td>
+                <td>25€/h</td>
+                <td>1h</td>
+                <td><span class="badge badge-success">Actif</span></td>
+                <td>
+                  <button class="btn-action" onclick="editCourse(1)" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" onclick="deleteCourse(1)" title="Supprimer">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Groupe A1</td>
+                <td>A1</td>
+                <td>Groupe</td>
+                <td>180€</td>
+                <td>20h</td>
+                <td><span class="badge badge-success">Actif</span></td>
+                <td>
+                  <button class="btn-action" onclick="editCourse(2)" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" onclick="deleteCourse(2)" title="Supprimer">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Groupe A2</td>
+                <td>A2</td>
+                <td>Groupe</td>
+                <td>190€</td>
+                <td>20h</td>
+                <td><span class="badge badge-success">Actif</span></td>
+                <td>
+                  <button class="btn-action" onclick="editCourse(3)" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" onclick="deleteCourse(3)" title="Supprimer">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Groupe B1</td>
+                <td>B1</td>
+                <td>Groupe</td>
+                <td>210€</td>
+                <td>25h</td>
+                <td><span class="badge badge-success">Actif</span></td>
+                <td>
+                  <button class="btn-action" onclick="editCourse(4)" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" onclick="deleteCourse(4)" title="Supprimer">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SERVICES SECTION - Управление услугами -->
+    <!-- ============================================ -->
+    <section id="section-services" class="content-section">
+      <div class="section-header">
+        <h2>Gestion des services</h2>
+        <button class="btn btn-primary" onclick="openServiceModal()">
+          <i class="fas fa-plus"></i> Ajouter un service
+        </button>
+      </div>
+
+      <div class="card">
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Nom du service</th>
+                <th>Type</th>
+                <th>Prix</th>
+                <th>Description</th>
+                <th>Statut</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Traduction orale</td>
+                <td>Téléphonique/En personne</td>
+                <td>20€/h</td>
+                <td>Assistance téléphonique et rendez-vous</td>
+                <td><span class="badge badge-success">Actif</span></td>
+                <td>
+                  <button class="btn-action" onclick="editService(1)" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" onclick="deleteService(1)" title="Supprimer">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Traduction écrite</td>
+                <td>Documents</td>
+                <td>20€/page</td>
+                <td>Traduction de documents officiels</td>
+                <td><span class="badge badge-success">Actif</span></td>
+                <td>
+                  <button class="btn-action" onclick="editService(2)" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" onclick="deleteService(2)" title="Supprimer">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Accompagnement administratif</td>
+                <td>En présentiel</td>
+                <td>50€/h</td>
+                <td>Accompagnement Amiens Métropole</td>
+                <td><span class="badge badge-success">Actif</span></td>
+                <td>
+                  <button class="btn-action" onclick="editService(3)" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" onclick="deleteService(3)" title="Supprimer">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- BOOKINGS SECTION - Управление заявками -->
+    <!-- ============================================ -->
+    <section id="section-bookings" class="content-section">
+      <div class="section-header">
+        <h2>Réservations et demandes</h2>
+        <div class="filter-group">
+          <select class="form-select" onchange="filterBookings(this.value)">
+            <option value="all">Tous les statuts</option>
+            <option value="pending">En attente</option>
+            <option value="confirmed">Confirmé</option>
+            <option value="cancelled">Annulé</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nom complet</th>
+                <th>Email</th>
+                <th>Téléphone</th>
+                <th>Cours/Service</th>
+                <th>Date</th>
+                <th>Statut</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>#001</td>
+                <td>Marie Dupont</td>
+                <td>marie.d@email.com</td>
+                <td>06 12 34 56 78</td>
+                <td>Cours individuel</td>
+                <td>15/01/2025</td>
+                <td><span class="badge badge-success">Confirmé</span></td>
+                <td>
+                  <button class="btn-action" onclick="viewBooking(1)" title="Voir">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button class="btn-action" onclick="editBooking(1)" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" onclick="deleteBooking(1)" title="Supprimer">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>#002</td>
+                <td>Jean Martin</td>
+                <td>jean.m@email.com</td>
+                <td>06 98 76 54 32</td>
+                <td>Groupe A2</td>
+                <td>16/01/2025</td>
+                <td><span class="badge badge-warning">En attente</span></td>
+                <td>
+                  <button class="btn-action" onclick="viewBooking(2)" title="Voir">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button class="btn-action" onclick="editBooking(2)" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" onclick="deleteBooking(2)" title="Supprimer">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>#003</td>
+                <td>Sophie Bernard</td>
+                <td>sophie.b@email.com</td>
+                <td>07 11 22 33 44</td>
+                <td>Traduction orale</td>
+                <td>17/01/2025</td>
+                <td><span class="badge badge-success">Confirmé</span></td>
+                <td>
+                  <button class="btn-action" onclick="viewBooking(3)" title="Voir">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button class="btn-action" onclick="editBooking(3)" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" onclick="deleteBooking(3)" title="Supprimer">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- STUDENTS SECTION - Управление студентами -->
+    <!-- ============================================ -->
+    <section id="section-students" class="content-section">
+      <div class="section-header">
+        <h2>Gestion des étudiants</h2>
+        <button class="btn btn-primary" onclick="openStudentModal()">
+          <i class="fas fa-plus"></i> Ajouter un étudiant
+        </button>
+      </div>
+
+      <div class="card">
+        <div class="card-filters">
+          <input type="text" class="form-control" placeholder="Rechercher un étudiant..." onkeyup="searchStudents(this.value)">
+        </div>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Photo</th>
+                <th>Nom complet</th>
+                <th>Email</th>
+                <th>Téléphone</th>
+                <th>Niveau</th>
+                <th>Cours suivis</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><img src="https://ui-avatars.com/api/?name=Marie+Dupont" class="avatar-sm"></td>
+                <td>Marie Dupont</td>
+                <td>marie.d@email.com</td>
+                <td>06 12 34 56 78</td>
+                <td><span class="badge badge-info">A2</span></td>
+                <td>Cours individuel, Groupe A2</td>
+                <td>
+                  <button class="btn-action" onclick="viewStudent(1)" title="Voir">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button class="btn-action" onclick="editStudent(1)" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" onclick="deleteStudent(1)" title="Supprimer">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td><img src="https://ui-avatars.com/api/?name=Jean+Martin" class="avatar-sm"></td>
+                <td>Jean Martin</td>
+                <td>jean.m@email.com</td>
+                <td>06 98 76 54 32</td>
+                <td><span class="badge badge-info">B1</span></td>
+                <td>Groupe B1</td>
+                <td>
+                  <button class="btn-action" onclick="viewStudent(2)" title="Voir">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button class="btn-action" onclick="editStudent(2)" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" onclick="deleteStudent(2)" title="Supprimer">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- RESOURCES SECTION - Управление ресурсами -->
+    <!-- ============================================ -->
+    <section id="section-resources" class="content-section">
+      <div class="section-header">
+        <h2>Ressources pédagogiques</h2>
+        <button class="btn btn-primary" onclick="openResourceModal()">
+          <i class="fas fa-plus"></i> Ajouter une ressource
+        </button>
+      </div>
+
+      <div class="card">
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Titre</th>
+                <th>Type</th>
+                <th>Catégorie</th>
+                <th>Niveau</th>
+                <th>Date d'ajout</th>
+                <th>Téléchargements</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Grammaire française - Conjugaison</td>
+                <td><i class="fas fa-file-pdf"></i> PDF</td>
+                <td>Grammaire</td>
+                <td><span class="badge badge-info">A1-A2</span></td>
+                <td>10/01/2025</td>
+                <td>45</td>
+                <td>
+                  <button class="btn-action" onclick="downloadResource(1)" title="Télécharger">
+                    <i class="fas fa-download"></i>
+                  </button>
+                  <button class="btn-action" onclick="editResource(1)" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" onclick="deleteResource(1)" title="Supprimer">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Vocabulaire quotidien</td>
+                <td><i class="fas fa-file-word"></i> DOCX</td>
+                <td>Vocabulaire</td>
+                <td><span class="badge badge-info">A2</span></td>
+                <td>12/01/2025</td>
+                <td>32</td>
+                <td>
+                  <button class="btn-action" onclick="downloadResource(2)" title="Télécharger">
+                    <i class="fas fa-download"></i>
+                  </button>
+                  <button class="btn-action" onclick="editResource(2)" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" onclick="deleteResource(2)" title="Supprimer">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- PAGES SECTION - Управление страницами сайта -->
+    <!-- ============================================ -->
+    <section id="section-pages" class="content-section">
+      <div class="section-header">
+        <h2>Pages du site web</h2>
+      </div>
+
+      <div class="card">
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Page</th>
+                <th>URL</th>
+                <th>Dernière modification</th>
+                <th>Statut</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><i class="fas fa-home"></i> Accueil</td>
+                <td>/index.html</td>
+                <td>14/01/2025</td>
+                <td><span class="badge badge-success">Publié</span></td>
+                <td>
+                  <button class="btn-action" onclick="editPage('index')" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" onclick="previewPage('index')" title="Aperçu">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td><i class="fas fa-book"></i> Cours</td>
+                <td>/cours.html</td>
+                <td>13/01/2025</td>
+                <td><span class="badge badge-success">Publié</span></td>
+                <td>
+                  <button class="btn-action" onclick="editPage('cours')" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" onclick="previewPage('cours')" title="Aperçu">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td><i class="fas fa-concierge-bell"></i> Services</td>
+                <td>/services.html</td>
+                <td>15/01/2025</td>
+                <td><span class="badge badge-success">Publié</span></td>
+                <td>
+                  <button class="btn-action" onclick="editPage('services')" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" onclick="previewPage('services')" title="Aperçu">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td><i class="fas fa-info-circle"></i> À propos</td>
+                <td>/a-propos.html</td>
+                <td>10/01/2025</td>
+                <td><span class="badge badge-success">Publié</span></td>
+                <td>
+                  <button class="btn-action" onclick="editPage('apropos')" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" onclick="previewPage('apropos')" title="Aperçu">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SETTINGS SECTION - Параметры сайта -->
+    <!-- ============================================ -->
+    <section id="section-settings" class="content-section">
+      <div class="section-header">
+        <h2>Paramètres du site</h2>
+      </div>
+
+      <div class="settings-grid">
+        <!-- Основные настройки -->
+        <div class="card">
+          <div class="card-header">
+            <h3>Informations générales</h3>
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="mb-3">
+                <label class="form-label">Nom du site</label>
+                <input type="text" class="form-control" value="Français avec Albina">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Email de contact</label>
+                <input type="email" class="form-control" value="contact@francais-albina.fr">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Téléphone</label>
+                <input type="tel" class="form-control" value="+33 6 12 34 56 78">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Adresse</label>
+                <input type="text" class="form-control" value="Amiens, France">
+              </div>
+              <button type="submit" class="btn btn-primary">Enregistrer</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Horaires -->
+        <div class="card">
+          <div class="card-header">
+            <h3>Horaires d'ouverture</h3>
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="mb-3">
+                <label class="form-label">Lundi - Vendredi</label>
+                <input type="text" class="form-control" value="09:00 - 20:00">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Samedi</label>
+                <input type="text" class="form-control" value="09:00 - 18:00">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Dimanche</label>
+                <input type="text" class="form-control" value="Fermé">
+              </div>
+              <button type="submit" class="btn btn-primary">Enregistrer</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Réseaux sociaux -->
+        <div class="card">
+          <div class="card-header">
+            <h3>Réseaux sociaux</h3>
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="mb-3">
+                <label class="form-label"><i class="fab fa-facebook"></i> Facebook</label>
+                <input type="url" class="form-control" placeholder="URL Facebook">
+              </div>
+              <div class="mb-3">
+                <label class="form-label"><i class="fab fa-instagram"></i> Instagram</label>
+                <input type="url" class="form-control" placeholder="URL Instagram">
+              </div>
+              <div class="mb-3">
+                <label class="form-label"><i class="fab fa-linkedin"></i> LinkedIn</label>
+                <input type="url" class="form-control" placeholder="URL LinkedIn">
+              </div>
+              <button type="submit" class="btn btn-primary">Enregistrer</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Paramètres email -->
+        <div class="card">
+          <div class="card-header">
+            <h3>Configuration email</h3>
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="mb-3">
+                <label class="form-label">Serveur SMTP</label>
+                <input type="text" class="form-control" placeholder="smtp.example.com">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Port</label>
+                <input type="number" class="form-control" placeholder="587">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Email d'envoi</label>
+                <input type="email" class="form-control" placeholder="noreply@francais-albina.fr">
+              </div>
+              <button type="submit" class="btn btn-primary">Enregistrer</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================ -->
+  <!-- MODAL CONTAINER - Контейнер для модальных окон -->
+  <!-- ============================================ -->
+  <div id="modalContainer"></div>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

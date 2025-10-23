@@ -1,0 +1,447 @@
+/* ============================================ */
+/* SERVICES SECTION - Основная секция услуг */
+/* ============================================ */
+.services-section {
+  position: relative;
+  padding: 100px 20px;
+  background: url('https://images.unsplash.com/photo-1581092160614-b9c696b3bd8b?auto=format&fit=crop&w=1920&q=80') center/cover fixed no-repeat;
+  color: #000000;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Оверлей для фона секции */
+.services-section .overlay {
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  background: linear-gradient(to right, #f1f1ef 0%, #e2e2de 100%);
+  z-index: 1;
+}
+
+/* Контейнер контента */
+.services-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Заголовок секции */
+.section-title {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* Подзаголовок секции */
+.section-subtitle {
+  font-size: 18px;
+  margin-bottom: 60px;
+  color: #0f0f0f;
+}
+
+/* ============================================ */
+/* SERVICES GRID - Сетка карточек услуг */
+/* ============================================ */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ============================================ */
+/* FLIP CARDS - Переворачивающиеся карточки */
+/* ============================================ */
+.flip-card {
+  background: transparent;
+  perspective: 1000px;
+}
+
+/* Внутренний контейнер карточки */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Эффект переворота при наведении */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Лицевая и обратная стороны карточки */
+.flip-card-front, 
+.flip-card-back {
+  position: relative;
+  backface-visibility: hidden;
+  background: rgba(255, 255, 255, 0.95);
+  color: #222;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  min-height: 300px;
+}
+
+/* Лицевая сторона */
+.flip-card-front {
+  z-index: 2;
+}
+
+/* Обратная сторона (перевернутая) */
+.flip-card-back {
+  transform: rotateY(180deg);
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
+}
+
+/* Иконка услуги */
+.service-icon {
+  font-size: 48px;
+  color: #2575fc;
+  margin-bottom: 20px;
+}
+
+/* Выделенная карточка */
+.highlighted {
+  border: 3px solid #ffc107;
+}
+
+/* ============================================ */
+/* MODAL CUSTOMIZATION - Стилизация модального окна */
+/* ============================================ */
+
+/* Кремовый фон для модального окна */
+.modal-content {
+  background: #faf8f5 !important;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Заголовок модального окна */
+.modal-header {
+  background: linear-gradient(135deg, #f5f2ed 0%, #ebe8e0 100%);
+  border-bottom: 1px solid #e0ddd5;
+  border-radius: 15px 15px 0 0;
+  padding: 20px 25px;
+}
+
+.modal-title {
+  color: #333;
+  font-weight: 600;
+}
+
+/* Тело модального окна */
+.modal-body {
+  padding: 30px 25px;
+}
+
+/* Подвал модального окна */
+.modal-footer {
+  background: linear-gradient(135deg, #f5f2ed 0%, #ebe8e0 100%);
+  border-top: 1px solid #e0ddd5;
+  border-radius: 0 0 15px 15px;
+  padding: 15px 25px;
+}
+
+/* ============================================ */
+/* DATE PICKER - Минималистичный выбор даты */
+/* ============================================ */
+
+/* Контейнер выбора даты */
+.date-picker-wrapper {
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Кнопка выбора даты (свернутый вид) */
+.date-select-button {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #ffffff 0%, #f9f7f4 100%);
+  border: 2px solid #2575fc;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.date-select-button:hover {
+  background: linear-gradient(135deg, #f9f7f4 0%, #f5f2ed 100%);
+  box-shadow: 0 4px 15px rgba(37, 117, 252, 0.2);
+}
+
+.date-select-button i {
+  color: #2575fc;
+}
+
+/* Календарь (развернутый вид) */
+.calendar-container {
+  margin-top: 15px;
+  display: none;
+}
+
+.calendar-container.active {
+  display: block;
+}
+
+/* Минималистичный стиль flatpickr */
+.flatpickr-calendar.inline {
+  box-shadow: none !important;
+  border: 1px solid #e0ddd5;
+  border-radius: 8px;
+  background: #ffffff;
+  width: 100% !important;
+}
+
+.flatpickr-months {
+  background: #f5f2ed;
+  border-radius: 8px 8px 0 0;
+}
+
+.flatpickr-current-month {
+  color: #333;
+}
+
+.flatpickr-day.selected {
+  background: #2575fc;
+  border-color: #2575fc;
+}
+
+.flatpickr-day:hover {
+  background: #e8f0fe;
+  border-color: #2575fc;
+}
+
+/* ============================================ */
+/* TIME PICKER - Круглый выбор времени */
+/* ============================================ */
+
+/* Контейнер выбора времени */
+.time-picker-container {
+  margin-top: 20px;
+  display: none;
+}
+
+.time-picker-container.active {
+  display: block;
+}
+
+/* Круглый циферблат */
+.clock-picker {
+  width: 280px;
+  height: 280px;
+  margin: 20px auto;
+  position: relative;
+  background: #ffffff;
+  border-radius: 50%;
+  border: 3px solid #2575fc;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Центральная точка часов */
+.clock-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background: #2575fc;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+/* Стрелка часов */
+.clock-hand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3px;
+  height: 90px;
+  background: #2575fc;
+  transform-origin: 50% 100%;
+  transform: translate(-50%, -100%) rotate(0deg);
+  transition: transform 0.3s ease;
+  border-radius: 3px;
+  z-index: 5;
+}
+
+/* Цифры на циферблате */
+.clock-number {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.clock-number:hover {
+  background: #e8f0fe;
+  color: #2575fc;
+  transform: scale(1.1);
+}
+
+.clock-number.active {
+  background: #2575fc;
+  color: #ffffff;
+}
+
+/* Отображение выбранного времени */
+.time-display {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #2575fc;
+  margin-bottom: 15px;
+  padding: 15px;
+  background: linear-gradient(135deg, #ffffff 0%, #f9f7f4 100%);
+  border-radius: 8px;
+  border: 2px solid #e0ddd5;
+}
+
+.time-label {
+  display: block;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* ============================================ */
+/* DOCUMENT UPLOAD - Загрузка документа */
+/* ============================================ */
+
+.document-upload-area {
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.upload-icon {
+  font-size: 64px;
+  color: #2575fc;
+  margin-bottom: 20px;
+}
+
+.upload-text {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.file-input-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.file-input-wrapper input[type="file"] {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.file-input-label {
+  display: block;
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #2575fc 0%, #2575fc 100%);
+  color: #ffffff;
+  border-radius: 0px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.file-input-label:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(37, 117, 252, 0.3);
+}
+
+.file-name-display {
+  margin-top: 15px;
+  padding: 10px;
+  background: #f9f7f4;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #333;
+  display: none;
+}
+
+.file-name-display.active {
+  display: block;
+}
+
+/* ============================================ */
+/* FORM CONTROLS - Стилизация полей формы */
+/* ============================================ */
+
+.form-control {
+  border: 1px solid #d4d1c9;
+  border-radius: 8px;
+  padding: 12px;
+  background: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #2575fc;
+  box-shadow: 0 0 0 3px rgba(37, 117, 252, 0.1);
+  background: #ffffff;
+  outline: none;
+}
+
+/* ============================================ */
+/* RESPONSIVE - Адаптивность */
+/* ============================================ */
+@media (max-width: 768px) {
+  .modal-dialog {
+    margin: 10px;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-title {
+    font-size: 32px;
+  }
+  
+  .clock-picker {
+    width: 240px;
+    height: 240px;
+  }
+  
+  .clock-hand {
+    height: 70px;
+  }
+}
