@@ -107,19 +107,27 @@ function openCourseModal(courseId = null) {
                 <input type="number" class="form-control" name="price" required>
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label class="form-label">Durée (heures)</label>
-                <input type="number" class="form-control" name="duration" required>
-              </div>
-              <div class="col-md-6 mb-3">
-                <label class="form-label">Statut</label>
-                <select class="form-select" name="status" required>
-                  <option value="active">Actif</option>
-                  <option value="inactive">Inactif</option>
-                </select>
-              </div>
-            </div>
+           <div class="row">
+  <div class="col-md-6 mb-3">
+    <label class="form-label">Durée</label>
+    <div class="d-flex gap-2">
+      <div class="flex-fill">
+        <input type="number" class="form-control" name="duration_hours" placeholder="Heures" min="0" required>
+      </div>
+      <div class="flex-fill">
+        <input type="number" class="form-control" name="duration_weeks" placeholder="Semaines" min="0">
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 mb-3">
+    <label class="form-label">Statut</label>
+    <select class="form-select" name="status" required>
+      <option value="active">Actif</option>
+      <option value="inactive">Inactif</option>
+    </select>
+  </div>
+</div>
+
             <div class="mb-3">
               <label class="form-label">Description</label>
               <textarea class="form-control" name="description" rows="4" required></textarea>
