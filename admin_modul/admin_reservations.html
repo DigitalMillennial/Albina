@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - Réservations | Français avec Albina</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+  <!-- ============================================ -->
+  <!-- SIDEBAR - Боковое меню навигации -->
+  <!-- ============================================ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="admin-logo">
+        <i class="fas fa-graduation-cap"></i>
+        <span>Admin Panel</span>
+      </div>
+      <button class="sidebar-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="admin.html" class="nav-item">
+        <i class="fas fa-chart-line"></i>
+        <span>Dashboard</span>
+      </a>
+      <a href="admin_cours.html" class="nav-item">
+        <i class="fas fa-book"></i>
+        <span>Gestion des cours</span>
+      </a>
+      <a href="admin_services.html" class="nav-item">
+        <i class="fas fa-concierge-bell"></i>
+        <span>Gestion des services</span>
+      </a>
+      <a href="admin_reservations.html" class="nav-item active">
+        <i class="fas fa-calendar-check"></i>
+        <span>Réservations</span>
+      </a>
+      <a href="admin_etudiants.html" class="nav-item">
+        <i class="fas fa-users"></i>
+        <span>Étudiants</span>
+      </a>
+      <a href="admin_ressources.html" class="nav-item">
+        <i class="fas fa-folder-open"></i>
+        <span>Ressources</span>
+      </a>
+      <a href="admin_pages.html" class="nav-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Pages du site</span>
+      </a>
+      <a href="admin_parametres.html" class="nav-item">
+        <i class="fas fa-cog"></i>
+        <span>Paramètres</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="admin-profile">
+        <img src="https://ui-avatars.com/api/?name=Albina&background=2575fc&color=fff" alt="Admin">
+        <div>
+          <div class="admin-name">Albina</div>
+          <div class="admin-role">Administrateur</div>
+        </div>
+      </div>
+      <a href="index.html" class="btn-logout">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Déconnexion</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ============================================ -->
+  <!-- MAIN CONTENT - Основной контент -->
+  <!-- ============================================ -->
+  <main class="main-content">
+    <!-- HEADER -->
+    <header class="top-header">
+      <button class="mobile-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+      </button>
+      <h1 class="page-title">Réservations</h1>
+      <div class="header-actions">
+        <button class="btn-icon" title="Notifications">
+          <i class="fas fa-bell"></i>
+          <span class="badge">3</span>
+        </button>
+        <button class="btn-icon" title="Messages">
+          <i class="fas fa-envelope"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- ============================================ -->
+    <!-- BOOKINGS SECTION - Управление заявками -->
+    <!-- ============================================ -->
+    <section class="content-section active">
+      <div class="section-header">
+        <h2>Réservations et demandes</h2>
+        <div class="filter-group">
+          <select class="form-select" onchange="filterBookings(this.value)">
+            <option value="all">Tous les statuts</option>
+            <option value="pending">En attente</option>
+            <option value="confirmed">Confirmé</option>
+            <option value="cancelled">Annulé</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nom complet</th>
+                <th>Email</th>
+                <th>Téléphone</th>
+                <th>Cours/Service</th>
+                <th>Date</th>
+                <th>Statut</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>#001</td>
+                <td>Marie Dupont</td>
+                <td>marie.d@email.com</td>
+                <td>06 12 34 56 78</td>
+                <td>Cours individuel</td>
+                <td>15/01/2025</td>
+                <td><span class="badge badge-success">Confirmé</span></td>
+                <td>
+                  <button class="btn-action" onclick="viewBooking(1)" title="Voir">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button class="btn-action" onclick="editBooking(1)" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" onclick="deleteBooking(1)" title="Supprimer">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>#002</td>
+                <td>Jean Martin</td>
+                <td>jean.m@email.com</td>
+                <td>06 98 76 54 32</td>
+                <td>Groupe A2</td>
+                <td>16/01/2025</td>
+                <td><span class="badge badge-warning">En attente</span></td>
+                <td>
+                  <button class="btn-action" onclick="viewBooking(2)" title="Voir">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button class="btn-action" onclick="editBooking(2)" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" onclick="deleteBooking(2)" title="Supprimer">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>#003</td>
+                <td>Sophie Bernard</td>
+                <td>sophie.b@email.com</td>
+                <td>07 11 22 33 44</td>
+                <td>Traduction orale</td>
+                <td>17/01/2025</td>
+                <td><span class="badge badge-success">Confirmé</span></td>
+                <td>
+                  <button class="btn-action" onclick="viewBooking(3)" title="Voir">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button class="btn-action" onclick="editBooking(3)" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" onclick="deleteBooking(3)" title="Supprimer">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================ -->
+  <!-- MODAL CONTAINER - Контейнер для модальных окон -->
+  <!-- ============================================ -->
+  <div id="modalContainer"></div>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

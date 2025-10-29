@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - Ressources | Français avec Albina</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+  <!-- ============================================ -->
+  <!-- SIDEBAR - Боковое меню навигации -->
+  <!-- ============================================ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="admin-logo">
+        <i class="fas fa-graduation-cap"></i>
+        <span>Admin Panel</span>
+      </div>
+      <button class="sidebar-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="admin.html" class="nav-item">
+        <i class="fas fa-chart-line"></i>
+        <span>Dashboard</span>
+      </a>
+      <a href="admin_cours.html" class="nav-item">
+        <i class="fas fa-book"></i>
+        <span>Gestion des cours</span>
+      </a>
+      <a href="admin_services.html" class="nav-item">
+        <i class="fas fa-concierge-bell"></i>
+        <span>Gestion des services</span>
+      </a>
+      <a href="admin_reservations.html" class="nav-item">
+        <i class="fas fa-calendar-check"></i>
+        <span>Réservations</span>
+      </a>
+      <a href="admin_etudiants.html" class="nav-item">
+        <i class="fas fa-users"></i>
+        <span>Étudiants</span>
+      </a>
+      <a href="admin_ressources.html" class="nav-item active">
+        <i class="fas fa-folder-open"></i>
+        <span>Ressources</span>
+      </a>
+      <a href="admin_pages.html" class="nav-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Pages du site</span>
+      </a>
+      <a href="admin_parametres.html" class="nav-item">
+        <i class="fas fa-cog"></i>
+        <span>Paramètres</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="admin-profile">
+        <img src="https://ui-avatars.com/api/?name=Albina&background=2575fc&color=fff" alt="Admin">
+        <div>
+          <div class="admin-name">Albina</div>
+          <div class="admin-role">Administrateur</div>
+        </div>
+      </div>
+      <a href="index.html" class="btn-logout">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Déconnexion</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ============================================ -->
+  <!-- MAIN CONTENT - Основной контент -->
+  <!-- ============================================ -->
+  <main class="main-content">
+    <!-- HEADER -->
+    <header class="top-header">
+      <button class="mobile-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+      </button>
+      <h1 class="page-title">Ressources</h1>
+      <div class="header-actions">
+        <button class="btn-icon" title="Notifications">
+          <i class="fas fa-bell"></i>
+          <span class="badge">3</span>
+        </button>
+        <button class="btn-icon" title="Messages">
+          <i class="fas fa-envelope"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- ============================================ -->
+    <!-- RESOURCES SECTION - Управление ресурсами -->
+    <!-- ============================================ -->
+    <section class="content-section active">
+      <div class="section-header">
+        <h2>Ressources pédagogiques</h2>
+        <button class="btn btn-primary" onclick="openResourceModal()">
+          <i class="fas fa-plus"></i> Ajouter une ressource
+        </button>
+      </div>
+
+      <div class="card">
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Titre</th>
+                <th>Type</th>
+                <th>Catégorie</th>
+                <th>Niveau</th>
+                <th>Date d'ajout</th>
+                <th>Téléchargements</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Grammaire française - Conjugaison</td>
+                <td><i class="fas fa-file-pdf"></i> PDF</td>
+                <td>Grammaire</td>
+                <td><span class="badge badge-info">A1-A2</span></td>
+                <td>10/01/2025</td>
+                <td>45</td>
+                <td>
+                  <button class="btn-action" onclick="downloadResource(1)" title="Télécharger">
+                    <i class="fas fa-download"></i>
+                  </button>
+                  <button class="btn-action" onclick="editResource(1)" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" onclick="deleteResource(1)" title="Supprimer">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Vocabulaire quotidien</td>
+                <td><i class="fas fa-file-word"></i> DOCX</td>
+                <td>Vocabulaire</td>
+                <td><span class="badge badge-info">A2</span></td>
+                <td>12/01/2025</td>
+                <td>32</td>
+                <td>
+                  <button class="btn-action" onclick="downloadResource(2)" title="Télécharger">
+                    <i class="fas fa-download"></i>
+                  </button>
+                  <button class="btn-action" onclick="editResource(2)" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" onclick="deleteResource(2)" title="Supprimer">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================ -->
+  <!-- MODAL CONTAINER - Контейнер для модальных окон -->
+  <!-- ============================================ -->
+  <div id="modalContainer"></div>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

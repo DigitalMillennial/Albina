@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - Pages du site | Français avec Albina</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+  <!-- ============================================ -->
+  <!-- SIDEBAR - Боковое меню навигации -->
+  <!-- ============================================ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="admin-logo">
+        <i class="fas fa-graduation-cap"></i>
+        <span>Admin Panel</span>
+      </div>
+      <button class="sidebar-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="admin.html" class="nav-item">
+        <i class="fas fa-chart-line"></i>
+        <span>Dashboard</span>
+      </a>
+      <a href="admin_cours.html" class="nav-item">
+        <i class="fas fa-book"></i>
+        <span>Gestion des cours</span>
+      </a>
+      <a href="admin_services.html" class="nav-item">
+        <i class="fas fa-concierge-bell"></i>
+        <span>Gestion des services</span>
+      </a>
+      <a href="admin_reservations.html" class="nav-item">
+        <i class="fas fa-calendar-check"></i>
+        <span>Réservations</span>
+      </a>
+      <a href="admin_etudiants.html" class="nav-item">
+        <i class="fas fa-users"></i>
+        <span>Étudiants</span>
+      </a>
+      <a href="admin_ressources.html" class="nav-item">
+        <i class="fas fa-folder-open"></i>
+        <span>Ressources</span>
+      </a>
+      <a href="admin_pages.html" class="nav-item active">
+        <i class="fas fa-file-alt"></i>
+        <span>Pages du site</span>
+      </a>
+      <a href="admin_parametres.html" class="nav-item">
+        <i class="fas fa-cog"></i>
+        <span>Paramètres</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="admin-profile">
+        <img src="https://ui-avatars.com/api/?name=Albina&background=2575fc&color=fff" alt="Admin">
+        <div>
+          <div class="admin-name">Albina</div>
+          <div class="admin-role">Administrateur</div>
+        </div>
+      </div>
+      <a href="index.html" class="btn-logout">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Déconnexion</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ============================================ -->
+  <!-- MAIN CONTENT - Основной контент -->
+  <!-- ============================================ -->
+  <main class="main-content">
+    <!-- HEADER -->
+    <header class="top-header">
+      <button class="mobile-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+      </button>
+      <h1 class="page-title">Pages du site</h1>
+      <div class="header-actions">
+        <button class="btn-icon" title="Notifications">
+          <i class="fas fa-bell"></i>
+          <span class="badge">3</span>
+        </button>
+        <button class="btn-icon" title="Messages">
+          <i class="fas fa-envelope"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- ============================================ -->
+    <!-- PAGES SECTION - Управление страницами сайта -->
+    <!-- ============================================ -->
+    <section class="content-section active">
+      <div class="section-header">
+        <h2>Pages du site web</h2>
+      </div>
+
+      <div class="card">
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Page</th>
+                <th>URL</th>
+                <th>Dernière modification</th>
+                <th>Statut</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><i class="fas fa-home"></i> Accueil</td>
+                <td>/index.html</td>
+                <td>14/01/2025</td>
+                <td><span class="badge badge-success">Publié</span></td>
+                <td>
+                  <button class="btn-action" onclick="editPage('index')" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" onclick="previewPage('index')" title="Aperçu">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td><i class="fas fa-book"></i> Cours</td>
+                <td>/cours.html</td>
+                <td>13/01/2025</td>
+                <td><span class="badge badge-success">Publié</span></td>
+                <td>
+                  <button class="btn-action" onclick="editPage('cours')" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" onclick="previewPage('cours')" title="Aperçu">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td><i class="fas fa-concierge-bell"></i> Services</td>
+                <td>/services.html</td>
+                <td>15/01/2025</td>
+                <td><span class="badge badge-success">Publié</span></td>
+                <td>
+                  <button class="btn-action" onclick="editPage('services')" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" onclick="previewPage('services')" title="Aperçu">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td><i class="fas fa-info-circle"></i> À propos</td>
+                <td>/a-propos.html</td>
+                <td>10/01/2025</td>
+                <td><span class="badge badge-success">Publié</span></td>
+                <td>
+                  <button class="btn-action" onclick="editPage('apropos')" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" onclick="previewPage('apropos')" title="Aperçu">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================ -->
+  <!-- MODAL CONTAINER - Контейнер для модальных окон -->
+  <!-- ============================================ -->
+  <div id="modalContainer"></div>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
