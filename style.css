@@ -964,7 +964,7 @@ body {
 }
 
 .gallery-item {
-  border-radius: 6px;
+  border-radius: 0px;
   overflow: hidden;
   height: 80px;
   width: 100%;
