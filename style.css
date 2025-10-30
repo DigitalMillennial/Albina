@@ -918,7 +918,7 @@ body {
 .newsletter-form input {
   border: none;
   padding: 10px 15px;
-  border-radius: 6px;
+  border-radius: 0px;
   width: 100%;
   text-align: center;
 }
@@ -928,7 +928,7 @@ body {
   border: none;
   color: #fff;
   padding: 10px;
-  border-radius: 6px;
+  border-radius: 0px;
   transition: background 0.3s;
 }
 
