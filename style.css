@@ -253,11 +253,9 @@ body {
 .hero {
   height: 100vh;
   background: linear-gradient(to right, #f1f1ef 0%, #e2e2de 100%);
-
-
   display: flex;
   align-items: center;
-  padding: 80px 20px 0; /* 🔹 Отступ сверху для разделения с navbar */
+  padding: 80px 20px 0; 
   position: relative;
   overflow: hidden;
 }
@@ -288,9 +286,7 @@ body {
   position: relative;
   margin-top: 15px;
   border-radius: 15px;
-  overflow: hidden;
-  /* Убрана рамка */
-  /* box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);*/
+  overflow: hidden;  
   transform: translateY(0);
   transition: transform 0.5s ease;
 }
@@ -346,10 +342,78 @@ body {
   background-color: #2575fc;
   color: #ffffff;
 }
+/* ------------------------------------------------------------------------------- */
+/* ------------------- MOBILE & TABLET ADAPTATION ------------------- */
+
+/* Общая настройка, чтобы текст перекрывал картинку */
+.hero-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Для планшетов и телефонов */
+@media (max-width: 1024px) {
+  .hero-content {
+    flex-direction: column; /* ставим вертикально */
+  }
+
+  .hero {
+  height: 55vh;
+  background: linear-gradient(to right, #f1f1ef 0%, #e2e2de 100%);
+  display: flex;
+  align-items: center;
+  padding: 80px 0px 0; 
+  position: relative;
+  overflow: hidden;
+}
+
+  .teacher-image {
+    width: 100%;
+    z-index: 1;
+    position: relative;
+    opacity: 0.4;
+  }
+
+  .teacher-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .hero-text {
+    width: 90%; /* можно подстроить под отступы */
+    z-index: 2;
+    position: absolute; /* поверх картинки */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #000; /* на случай светлого/тёмного фона */
+  }
+}
+
+/* Для маленьких телефонов */
+@media (max-width: 768px) {
+  .hero-text {
+    width: 95%;
+    font-size: 90%;
+    padding: 10px;
+  }
+}
+/* ------------------------------------------------------------------------- */
+
 /* MOTIVATION SECTION */
 .motivation {
   padding: 80px 20px;
   background: #f8f9fa;
+}
+@media (max-width: 768px) {
+  .motivation {
+    padding: 20px;
+  }
 }
 
 .motivation h2 {
@@ -875,9 +939,15 @@ body {
 }
 .contact-info {
   display: flex;
-  flex-direction: column;  /* Расположить элементы вертикально */
-  align-items: flex-start; /* ❗ Прижать весь контент к левой стороне */
+  flex-direction: column;
   justify-content: flex-start;
+  align-items: flex-start;
+}
+
+@media (max-width: 768px) {
+  .contact-info {
+    align-items: center;
+  }
 }
 
 .contact-info p {
