@@ -433,7 +433,7 @@ body {
 
 .reason-card {
   background: white;
-  border-radius: 10px;
+  border-radius: 0px;
   padding: 40px 30px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
