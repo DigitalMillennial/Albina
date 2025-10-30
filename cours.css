@@ -62,7 +62,7 @@
   position: relative;
   backface-visibility: hidden;
   background: rgba(255, 255, 255, 0.95);
-  border-radius: 10px;
+  border-radius: 0px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   padding: 30px;
   min-height: 320px;
@@ -101,3 +101,4 @@
   .section-title { font-size: 32px; }
   .courses-grid { grid-template-columns: 1fr; }
 }
+
