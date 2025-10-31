@@ -1,8 +1,27 @@
+/* ========================================================================
+   ФРАНЦУЗСКИЙ С АЛЬБИНОЙ - ГЛАВНАЯ ТАБЛИЦА СТИЛЕЙ
+   
+   СТРУКТУРА ФАЙЛА:
+   1. Глобальные стили
+   2. Навигация (Navbar)
+   3. Секция Hero
+   4. Секция Motivation
+   5. Секция Language Test
+   6. Секция About Teacher
+   7. Секция Testimonials
+   8. Footer
+   
+   АДАПТАЦИЯ: После каждой секции идут медиа-запросы для всех брейкпоинтов
+   ======================================================================== */
+
+/* ========================================================================
+   1. ГЛОБАЛЬНЫЕ СТИЛИ
+   ======================================================================== */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;*/
 }
 
 body {
@@ -10,7 +29,12 @@ body {
   color: #333;
   line-height: 1.6;
   overflow-x: hidden;
+  font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+/* ========================================================================
+   2. НАВИГАЦИЯ (NAVBAR)
+   ======================================================================== */
 
 .navbar {
   position: absolute;
@@ -74,7 +98,7 @@ body {
   transform: rotate(-45deg) translate(7px, -7px);
 }
 
-/* Logo with Eiffel Tower Icon */
+/* Logo with Icon */
 .logo {
   display: flex;
   align-items: center;
@@ -156,8 +180,37 @@ body {
   background-color: #4261e4;
   color: white;
 }
+ol, ul {
+    padding: 0rem;
+}
+/* === NAVBAR RESPONSIVE === */
 
-/* Mobile Responsive Styles */
+/* Планшеты и большие телефоны (≤ 1024px) */
+@media (max-width: 1024px) {
+  .navbar {
+    width: 95%;
+    padding: 0 20px;
+  }
+  
+  .logo {
+    font-size: 20px;
+  }
+  
+  .logo i {
+    font-size: 22px;
+  }
+  
+  .nav-links li {
+    margin: 0 10px;
+  }
+  
+  .nav-links a {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+}
+
+/* Стандартные планшеты и большие телефоны (≤ 768px) */
 @media (max-width: 768px) {
   .navbar {
     padding: 0 15px;
@@ -174,14 +227,14 @@ body {
 
   /* Logo in Center */
   .logo {
-    font-size: 14px;
+    font-size: 16px;
     flex-grow: 1;
     justify-content: center;
     margin: 0 5px;
   }
 
   .logo i {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .logo span {
@@ -204,11 +257,11 @@ body {
   /* Navigation Links - Mobile Menu */
   .nav-links {
     position: fixed;
-    top: 80px;
+    top: 70px;
     left: -100%;
     width: 100%;
     max-width: 300px;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 70px);
     background-color: rgba(255, 255, 255, 0.98);
     flex-direction: column;
     align-items: flex-start;
@@ -231,11 +284,16 @@ body {
   .nav-links a {
     width: 100%;
     padding: 12px 15px;
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 
+/* Стандартные телефоны (≤ 480px) */
 @media (max-width: 480px) {
+  .navbar {
+    padding: 0 10px;
+  }
+  
   .logo {
     font-size: 14px;
   }
@@ -248,8 +306,43 @@ body {
     padding: 5px 6px;
     font-size: 11px;
   }
+  
+  .nav-links {
+    top: 60px;
+    height: calc(100vh - 60px);
+  }
 }
-/* ------------------------------------- HERO SECTION ------------------------- */
+
+/* Малые телефоны (≤ 400px) */
+@media (max-width: 400px) {
+  .navbar {
+    padding: 0 8px;
+    min-height: 55px;
+  }
+  
+  .logo {
+    font-size: 12px;
+    gap: 6px;
+  }
+
+  .logo i {
+    font-size: 14px;
+  }
+
+  .language-selector {
+    gap: 3px;
+  }
+  
+  .language-selector button {
+    padding: 4px 5px;
+    font-size: 10px;
+  }
+}
+
+/* ========================================================================
+   3. СЕКЦИЯ HERO
+   ======================================================================== */
+
 .hero {
   height: 100vh;
   background: linear-gradient(to right, #f1f1ef 0%, #e2e2de 100%);
@@ -267,7 +360,6 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
- 
   z-index: 0;
 }
 
@@ -342,78 +434,201 @@ body {
   background-color: #2575fc;
   color: #ffffff;
 }
-/* ------------------------------------------------------------------------------- */
-/* ------------------- MOBILE & TABLET ADAPTATION ------------------- */
 
-/* Общая настройка, чтобы текст перекрывал картинку */
-.hero-content {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
+/* === HERO RESPONSIVE === */
 
-/* Для планшетов и телефонов */
-@media (max-width: 1024px) {
+/* Большие экраны / 4K (≥ 1920px) */
+@media (min-width: 1920px) {
   .hero-content {
-    flex-direction: column; /* ставим вертикально */
+    max-width: 1600px;
+    gap: 80px;
   }
-
-  .hero {
-  height: 55vh;
-  background: linear-gradient(to right, #f1f1ef 0%, #e2e2de 100%);
-  display: flex;
-  align-items: center;
-  padding: 80px 0px 0; 
-  position: relative;
-  overflow: hidden;
+  
+  .hero-text h1 {
+    font-size: 64px;
+    margin-bottom: 30px;
+  }
+  
+  .hero-text p {
+    font-size: 24px;
+    margin-bottom: 40px;
+  }
+  
+  .btn {
+    padding: 16px 40px;
+    font-size: 18px;
+  }
 }
+
+/* Стандартные мониторы (≤ 1440px) */
+@media (max-width: 1440px) {
+  .hero-content {
+    max-width: 1100px;
+    gap: 40px;
+  }
+  
+  .hero-text h1 {
+    font-size: 44px;
+  }
+  
+  .hero-text p {
+    font-size: 19px;
+  }
+}
+
+/* Малые ноутбуки (≤ 1280px) */
+@media (max-width: 1280px) {
+  .hero-content {
+    max-width: 1000px;
+    gap: 35px;
+  }
+  
+  .hero-text h1 {
+    font-size: 40px;
+  }
+  
+  .hero-text p {
+    font-size: 18px;
+  }
+}
+
+/* Планшеты (≤ 1024px) */
+@media (max-width: 1024px) {
+  .hero {
+    height: 90vh;
+    padding: 100px 20px 0;
+  }
+  
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+  
+  .teacher-image {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .hero-text {
+    text-align: center;
+  }
+  
+  .hero-text h1 {
+    font-size: 36px;
+  }
+  
+  .hero-text p {
+    font-size: 17px;
+  }
+}
+
+/* Большие телефоны / малые планшеты (≤ 768px) */
+@media (max-width: 768px) {
+  .hero {
+    height: 70vh;
+    padding: 80px 15px 0;
+  }
+  
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
 
   .teacher-image {
     width: 100%;
+    max-width: none;
     z-index: 1;
     position: relative;
-    opacity: 0.4;
-  }
-
-  .teacher-image img {
-    width: 100%;
-    height: auto;
-    display: block;
+    opacity: 0.35;
+    margin-top: 0;
   }
 
   .hero-text {
-    width: 90%; /* можно подстроить под отступы */
+    width: 90%;
     z-index: 2;
-    position: absolute; /* поверх картинки */
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: #000; /* на случай светлого/тёмного фона */
+    color: #000;
+  }
+  
+  .hero-text h1 {
+    font-size: 32px;
+    margin-bottom: 15px;
+  }
+  
+  .hero-text p {
+    font-size: 16px;
+    margin-bottom: 25px;
+  }
+  
+  .btn {
+    padding: 10px 25px;
+    font-size: 14px;
   }
 }
 
-/* Для маленьких телефонов */
-@media (max-width: 768px) {
+/* Стандартные телефоны (≤ 480px) */
+@media (max-width: 480px) {
+  .hero {
+    height: 60vh;
+    padding: 70px 10px 0;
+  }
+  
   .hero-text {
     width: 95%;
-    font-size: 90%;
-    padding: -5px 10px;
+  }
+  
+  .hero-text h1 {
+    font-size: 26px;
+    margin-bottom: 12px;
+  }
+  
+  .hero-text p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .btn {
+    padding: 8px 20px;
+    font-size: 13px;
   }
 }
-/* ------------------------------------------------------------------------- */
 
-/* MOTIVATION SECTION */
+/* Малые телефоны (≤ 400px) */
+@media (max-width: 400px) {
+  .hero {
+    height: 55vh;
+    padding: 65px 5px 0;
+  }
+  
+  .hero-text h1 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  
+  .hero-text p {
+    font-size: 13px;
+    margin-bottom: 15px;
+  }
+  
+  .btn {
+    padding: 7px 18px;
+    font-size: 12px;
+  }
+}
+
+/* ========================================================================
+   4. СЕКЦИЯ MOTIVATION
+   ======================================================================== */
+
 .motivation {
   padding: 80px 20px;
   background: #f8f9fa;
-}
-@media (max-width: 768px) {
-  .motivation {
-    padding: 20px;
-  }
 }
 
 .motivation h6 {
@@ -421,6 +636,7 @@ body {
   margin-bottom: 50px;
   color: #2c3e50;
   text-align: center;
+  font-weight: 700;
 }
 
 .reasons-grid {
@@ -448,7 +664,8 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 5px;
+  height: 5px;  
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease;
@@ -487,8 +704,755 @@ body {
   color: #666;
   line-height: 1.6;
 }
-/* ------------------------------------------------------------------------- */
-/* ======================== TESTIMONIALS SECTION - ИСПРАВЛЕННАЯ ======================== */
+
+/* === MOTIVATION RESPONSIVE === */
+
+/* Большие экраны / 4K (≥ 1920px) */
+@media (min-width: 1920px) {
+  .motivation {
+    padding: 120px 40px;
+  }
+  
+  .motivation h6 {
+    font-size: 48px;
+    margin-bottom: 70px;
+  }
+  
+  .reasons-grid {
+    max-width: 1600px;
+    gap: 40px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .reason-card {
+    padding: 50px 40px;
+  }
+  
+  .reason-icon {
+    width: 100px;
+    height: 100px;
+    font-size: 40px;
+    margin-bottom: 25px;
+  }
+  
+  .reason-card h3 {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+  
+  .reason-card p {
+    font-size: 18px;
+  }
+}
+
+/* Стандартные мониторы (≤ 1440px) */
+@media (max-width: 1440px) {
+  .motivation {
+    padding: 70px 30px;
+  }
+  
+  .reasons-grid {
+    max-width: 1100px;
+  }
+}
+
+/* Малые ноутбуки (≤ 1280px) */
+@media (max-width: 1280px) {
+  .motivation {
+    padding: 60px 25px;
+  }
+  
+  .motivation h6 {
+    font-size: 34px;
+    margin-bottom: 45px;
+  }
+  
+  .reasons-grid {
+    max-width: 1000px;
+    gap: 25px;
+  }
+}
+
+/* Планшеты (≤ 1024px) */
+@media (max-width: 1024px) {
+  .motivation {
+    padding: 50px 20px;
+  }
+  
+  .motivation h6 {
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
+  
+  .reasons-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  
+  .reason-card {
+    padding: 35px 25px;
+  }
+}
+
+/* Большие телефоны / малые планшеты (≤ 768px) */
+@media (max-width: 768px) {
+  .motivation {
+    padding: 40px 15px;
+  }
+  
+  .motivation h6 {
+    font-size: 28px;
+    margin-bottom: 35px;
+  }
+  
+  .reasons-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .reason-card {
+    padding: 30px 20px;
+  }
+  
+  .reason-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 28px;
+  }
+  
+  .reason-card h3 {
+    font-size: 20px;
+  }
+  
+  .reason-card p {
+    font-size: 15px;
+  }
+}
+
+/* Стандартные телефоны (≤ 480px) */
+@media (max-width: 480px) {
+  .motivation {
+    padding: 30px 10px;
+  }
+  
+  .motivation h6 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  
+  .reason-card {
+    padding: 25px 15px;
+  }
+  
+  .reason-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .reason-card h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+  
+  .reason-card p {
+    font-size: 14px;
+  }
+}
+
+/* Малые телефоны (≤ 400px) */
+@media (max-width: 400px) {
+  .motivation {
+    padding: 25px 8px;
+  }
+  
+  .motivation h6 {
+    font-size: 22px;
+    margin-bottom: 25px;
+  }
+  
+  .reason-card {
+    padding: 20px 12px;
+  }
+}
+
+/* ========================================================================
+   5. СЕКЦИЯ LANGUAGE TEST (с эффектом Parallax)
+   ======================================================================== */
+
+.language-test-section {
+  position: relative;
+  min-height: 60vh;
+  background: url('https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+  margin: 60px 0;
+}
+
+.language-test-section .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 1;
+}
+
+.language-test-section .content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 60px 20px;
+}
+
+.test-icon-animated {
+  font-size: 80px;
+  margin-bottom: 30px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.language-test-section h6 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.language-test-section p {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  color: #e6e6e6;
+}
+
+.btn-test {
+  background-color: #353535;
+  color: #fff;
+  padding: 15px 40px;
+  font-size: 16px;
+  border: 2px solid #353535;
+}
+
+.btn-test:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  background-color: #2575fc;
+  color: #ffffff;
+}
+
+/* === LANGUAGE TEST RESPONSIVE === */
+
+/* Большие экраны / 4K (≥ 1920px) */
+@media (min-width: 1920px) {
+  .language-test-section {
+    min-height: 70vh;
+    margin: 80px 0;
+  }
+  
+  .language-test-section .content {
+    max-width: 1000px;
+    padding: 80px 40px;
+  }
+  
+  .test-icon-animated {
+    font-size: 100px;
+    margin-bottom: 40px;
+  }
+  
+  .language-test-section h6 {
+    font-size: 52px;
+    margin-bottom: 30px;
+  }
+  
+  .language-test-section p {
+    font-size: 24px;
+    margin-bottom: 50px;
+  }
+  
+  .btn-test {
+    padding: 18px 50px;
+    font-size: 18px;
+  }
+}
+
+/* Стандартные мониторы (≤ 1440px) */
+@media (max-width: 1440px) {
+  .language-test-section .content {
+    max-width: 750px;
+  }
+  
+  .language-test-section h6 {
+    font-size: 40px;
+  }
+}
+
+/* Малые ноутбуки (≤ 1280px) */
+@media (max-width: 1280px) {
+  .language-test-section {
+    min-height: 55vh;
+    margin: 50px 0;
+  }
+  
+  .language-test-section .content {
+    max-width: 700px;
+    padding: 50px 20px;
+  }
+  
+  .test-icon-animated {
+    font-size: 70px;
+  }
+  
+  .language-test-section h6 {
+    font-size: 38px;
+  }
+  
+  .language-test-section p {
+    font-size: 19px;
+  }
+}
+
+/* Планшеты (≤ 1024px) */
+@media (max-width: 1024px) {
+  .language-test-section {
+    min-height: 50vh;
+    margin: 40px 0;
+    background-attachment: scroll;
+  }
+  
+  .test-icon-animated {
+    font-size: 65px;
+    margin-bottom: 25px;
+  }
+  
+  .language-test-section h6 {
+    font-size: 36px;
+  }
+  
+  .language-test-section p {
+    font-size: 18px;
+    margin-bottom: 35px;
+  }
+  
+  .btn-test {
+    padding: 14px 35px;
+  }
+}
+
+/* Большие телефоны / малые планшеты (≤ 768px) */
+@media (max-width: 768px) {
+  .language-test-section {
+    min-height: 45vh;
+    margin: 30px 0;
+  }
+  
+  .language-test-section .content {
+    padding: 40px 15px;
+  }
+  
+  .test-icon-animated {
+    font-size: 60px;
+    margin-bottom: 20px;
+  }
+  
+  .language-test-section h6 {
+    font-size: 30px;
+    margin-bottom: 15px;
+  }
+  
+  .language-test-section p {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+  
+  .btn-test {
+    padding: 12px 30px;
+    font-size: 15px;
+  }
+}
+
+/* Стандартные телефоны (≤ 480px) */
+@media (max-width: 480px) {
+  .language-test-section {
+    min-height: 40vh;
+    margin: 25px 0;
+  }
+  
+  .language-test-section .content {
+    padding: 30px 10px;
+  }
+  
+  .test-icon-animated {
+    font-size: 50px;
+    margin-bottom: 15px;
+  }
+  
+  .language-test-section h6 {
+    font-size: 26px;
+    margin-bottom: 12px;
+  }
+  
+  .language-test-section p {
+    font-size: 14px;
+    margin-bottom: 25px;
+  }
+  
+  .btn-test {
+    padding: 10px 25px;
+    font-size: 14px;
+  }
+}
+
+/* Малые телефоны (≤ 400px) */
+@media (max-width: 400px) {
+  .language-test-section {
+    min-height: 35vh;
+    margin: 20px 0;
+  }
+  
+  .test-icon-animated {
+    font-size: 45px;
+  }
+  
+  .language-test-section h6 {
+    font-size: 22px;
+  }
+  
+  .language-test-section p {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  
+  .btn-test {
+    padding: 8px 20px;
+    font-size: 13px;
+  }
+}
+
+/* ========================================================================
+   6. СЕКЦИЯ ABOUT TEACHER (Flip Cards)
+   ======================================================================== */
+
+.about-teacher {
+  padding: 80px 20px;
+  background: #fdfdfd;
+}
+
+.about-teacher h6 {
+  font-size: 36px;
+  margin-bottom: 50px;
+  color: #2c3e50;
+  text-align: center;
+  font-weight: 700;
+}
+
+.flip-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Flip Card Effect */
+.flip-card {
+  perspective: 1000px;
+  height: 300px;
+  cursor: pointer;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.flip-card-front {
+  background: linear-gradient(135deg, #2575fc, #4261e4);
+  color: white;
+}
+
+.flip-card-back {
+  background: #f8f9fa;
+  color: #333;
+  transform: rotateY(180deg);
+  border: 2px solid #4261e4;
+}
+
+.flip-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 0;
+}
+
+.flip-card-front h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.flip-card-back p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* === ABOUT TEACHER RESPONSIVE === */
+
+/* Большие экраны / 4K (≥ 1920px) */
+@media (min-width: 1920px) {
+  .about-teacher {
+    padding: 120px 40px;
+  }
+  
+  .about-teacher h6 {
+    font-size: 48px;
+    margin-bottom: 70px;
+  }
+  
+  .flip-cards-grid {
+    max-width: 1600px;
+    gap: 50px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .flip-card {
+    height: 350px;
+  }
+  
+  .flip-card-front,
+  .flip-card-back {
+    padding: 40px;
+  }
+  
+  .flip-icon {
+    width: 100px;
+    height: 100px;
+    font-size: 50px;
+    margin-bottom: 25px;
+  }
+  
+  .flip-card-front h3 {
+    font-size: 28px;
+  }
+  
+  .flip-card-back p {
+    font-size: 18px;
+  }
+}
+
+/* Стандартные мониторы (≤ 1440px) */
+@media (max-width: 1440px) {
+  .about-teacher {
+    padding: 70px 30px;
+  }
+  
+  .flip-cards-grid {
+    max-width: 1100px;
+  }
+}
+
+/* Малые ноутбуки (≤ 1280px) */
+@media (max-width: 1280px) {
+  .about-teacher {
+    padding: 60px 25px;
+  }
+  
+  .about-teacher h6 {
+    font-size: 34px;
+    margin-bottom: 45px;
+  }
+  
+  .flip-cards-grid {
+    max-width: 1000px;
+    gap: 35px;
+  }
+  
+  .flip-card {
+    height: 280px;
+  }
+}
+
+/* Планшеты (≤ 1024px) */
+@media (max-width: 1024px) {
+  .about-teacher {
+    padding: 50px 20px;
+  }
+  
+  .about-teacher h6 {
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
+  
+  .flip-cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+  
+  .flip-card {
+    height: 270px;
+  }
+}
+
+/* Большие телефоны / малые планшеты (≤ 768px) */
+@media (max-width: 768px) {
+  .about-teacher {
+    padding: 40px 15px;
+  }
+  
+  .about-teacher h6 {
+    font-size: 28px;
+    margin-bottom: 35px;
+  }
+  
+  .flip-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .flip-card {
+    height: 260px;
+  }
+  
+  .flip-card-front,
+  .flip-card-back {
+    padding: 25px;
+  }
+  
+  .flip-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 35px;
+    margin-bottom: 15px;
+  }
+  
+  .flip-card-front h3 {
+    font-size: 22px;
+  }
+  
+  .flip-card-back p {
+    font-size: 15px;
+  }
+}
+
+/* Стандартные телефоны (≤ 480px) */
+@media (max-width: 480px) {
+  .about-teacher {
+    padding: 30px 10px;
+  }
+  
+  .about-teacher h6 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  
+  .flip-card {
+    height: 240px;
+  }
+  
+  .flip-card-front,
+  .flip-card-back {
+    padding: 20px;
+  }
+  
+  .flip-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+  }
+  
+  .flip-card-front h3 {
+    font-size: 20px;
+  }
+  
+  .flip-card-back p {
+    font-size: 14px;
+  }
+}
+
+/* Малые телефоны (≤ 400px) */
+@media (max-width: 400px) {
+  .about-teacher {
+    padding: 25px 8px;
+  }
+  
+  .about-teacher h6 {
+    font-size: 22px;
+    margin-bottom: 25px;
+  }
+  
+  .flip-card {
+    height: 220px;
+  }
+  
+  .flip-card-front,
+  .flip-card-back {
+    padding: 15px;
+  }
+  
+  .flip-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+  }
+  
+  .flip-card-front h3 {
+    font-size: 18px;
+  }
+  
+  .flip-card-back p {
+    font-size: 13px;
+  }
+}
+
+/* ========================================================================
+   7. СЕКЦИЯ TESTIMONIALS (Отзывы)
+   ======================================================================== */
+
 .testimonials {
   padding: 80px 20px;
   background: #ffffff;
@@ -700,15 +1664,155 @@ body {
   transform: scale(1.2);
 }
 
-/* Адаптив */
+/* === TESTIMONIALS RESPONSIVE === */
+
+/* Большие экраны / 4K (≥ 1920px) */
+@media (min-width: 1920px) {
+  .testimonials {
+    padding: 120px 40px;
+  }
+  
+  .testimonials-header {
+    gap: 40px;
+    margin-bottom: 80px;
+  }
+  
+  .header-line {
+    max-width: 400px;
+  }
+  
+  .testimonials-header h6 {
+    font-size: 48px;
+  }
+  
+  .testimonial-slider {
+    max-width: 1000px;
+  }
+  
+  .testimonial-track {
+    min-height: 600px;
+  }
+  
+  .layer {
+    height: 500px;
+  }
+  
+  .layer-3,
+  .layer-2 {
+    height: 380px;
+  }
+  
+  .testimonial-card {
+    padding: 60px 50px 50px;
+  }
+  
+  .author-photo {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 35px;
+  }
+  
+  .quote-left,
+  .quote-right {
+    font-size: 70px;
+  }
+  
+  .testimonial-text {
+    font-size: 20px;
+    padding: 0 50px;
+  }
+  
+  .testimonial-author strong {
+    font-size: 24px;
+  }
+  
+  .testimonial-author span {
+    font-size: 16px;
+  }
+  
+  .testimonial-controls {
+    margin-top: 60px;
+  }
+  
+  .dot {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* Стандартные мониторы (≤ 1440px) */
+@media (max-width: 1440px) {
+  .testimonials {
+    padding: 70px 30px;
+  }
+  
+  .testimonial-slider {
+    max-width: 750px;
+  }
+}
+
+/* Малые ноутбуки (≤ 1280px) */
+@media (max-width: 1280px) {
+  .testimonials {
+    padding: 60px 25px;
+  }
+  
+  .testimonials-header h6 {
+    font-size: 34px;
+  }
+  
+  .testimonial-slider {
+    max-width: 700px;
+  }
+  
+  .testimonial-track {
+    min-height: 480px;
+  }
+}
+
+/* Планшеты (≤ 1024px) */
+@media (max-width: 1024px) {
+  .testimonials {
+    padding: 50px 20px;
+  }
+  
+  .testimonials-header {
+    gap: 25px;
+    margin-bottom: 50px;
+  }
+  
+  .testimonials-header h6 {
+    font-size: 32px;
+  }
+  
+  .testimonial-track {
+    min-height: 460px;
+  }
+  
+  .layer {
+    height: 400px;
+  }
+  
+  .testimonial-card {
+    padding: 45px 35px 35px;
+  }
+}
+
+/* Большие телефоны / малые планшеты (≤ 768px) */
 @media (max-width: 768px) {
+  .testimonials {
+    padding: 40px 15px;
+  }
+  
   .testimonials-header {
     flex-direction: column;
     gap: 15px;
+    margin-bottom: 40px;
   }
 
   .header-line {
     width: 100px;
+    max-width: 100px;
   }
 
   .testimonials-header h6 {
@@ -726,6 +1830,12 @@ body {
   .testimonial-card {
     padding: 40px 25px 30px;
   }
+  
+  .author-photo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+  }
 
   .testimonial-text {
     font-size: 16px;
@@ -736,206 +1846,154 @@ body {
   .quote-right {
     font-size: 40px;
   }
-}
-
-
-/* ======================== LANGUAGE TEST SECTION (Parallax Effect) ======================== */
-.language-test-section {
-  position: relative;
-  min-height: 60vh;
-  background: url('https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #fff;
-  overflow: hidden;
-  margin: 60px 0;
-}
-
-.language-test-section .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.65);
-  z-index: 1;
-}
-
-.language-test-section .content {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  padding: 60px 20px;
-}
-
-.test-icon-animated {
-  font-size: 80px;
-  margin-bottom: 30px;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
+  
+  .testimonial-author strong {
+    font-size: 18px;
   }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.8;
+  
+  .testimonial-author span {
+    font-size: 13px;
+  }
+  
+  .testimonial-controls {
+    margin-top: 40px;
   }
 }
 
-.language-test-section h6 {
-  font-size: 42px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+/* Стандартные телефоны (≤ 480px) */
+@media (max-width: 480px) {
+  .testimonials {
+    padding: 30px 10px;
+  }
+  
+  .testimonials-header h6 {
+    font-size: 24px;
+  }
+  
+  .testimonial-track {
+    min-height: 420px;
+  }
+  
+  .layer {
+    height: 360px;
+  }
+  
+  .layer-3,
+  .layer-2 {
+    height: 280px;
+  }
+  
+  .testimonial-card {
+    padding: 35px 20px 25px;
+  }
+  
+  .author-photo {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .testimonial-text {
+    font-size: 14px;
+    padding: 0 15px;
+  }
+  
+  .quote-left,
+  .quote-right {
+    font-size: 35px;
+  }
+  
+  .testimonial-author strong {
+    font-size: 16px;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
 }
 
-.language-test-section p {
-  font-size: 20px;
-  line-height: 1.6;
-  margin-bottom: 40px;
-  color: #e6e6e6;
+/* Малые телефоны (≤ 400px) */
+@media (max-width: 400px) {
+  .testimonials {
+    padding: 25px 8px;
+  }
+  
+  .testimonials-header h6 {
+    font-size: 22px;
+  }
+  
+  .testimonial-track {
+    min-height: 400px;
+  }
+  
+  .layer {
+    height: 340px;
+  }
+  
+  .testimonial-card {
+    padding: 30px 15px 20px;
+  }
+  
+  .author-photo {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+  }
+  
+  .testimonial-text {
+    font-size: 13px;
+    padding: 0 10px;
+  }
+  
+  .quote-left,
+  .quote-right {
+    font-size: 30px;
+  }
+  
+  .testimonial-author strong {
+    font-size: 15px;
+  }
+  
+  .testimonial-author span {
+    font-size: 12px;
+  }
+  
+  .testimonial-controls {
+    margin-top: 30px;
+  }
+  
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
 }
 
-.btn-test {
-  background-color: #353535;
-  color: #fff;
-  padding: 15px 40px;
-  font-size: 16px;
-  border: 2px solid #353535;
-}
+/* ========================================================================
+   8. FOOTER (Подвал сайта)
+   ======================================================================== */
 
-.btn-test:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-  background-color: #2575fc;
-  color: #ffffff;
-}
-/*-------------------------------------------------------*/
-
-/* ======================== ABOUT TEACHER SECTION (Flip Cards) ======================== */
-.about-teacher {
-  padding: 80px 20px;
-  background: #fdfdfd;
-}
-
-.about-teacher h6 {
-  font-size: 36px;
-  margin-bottom: 50px;
-  color: #2c3e50;
-  text-align: center;
-  font-weight: 700;
-}
-
-.flip-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Flip Card Effect */
-.flip-card {
-  perspective: 1000px;
-  height: 300px;
-  cursor: pointer;
-}
-
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-}
-
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-card-front,
-.flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-}
-
-.flip-card-front {
-  background: linear-gradient(135deg,#2575fc, #4261e4);
-  color: white;
-}
-
-.flip-card-back {
-  background: #f8f9fa;
-  color: #333;
-  transform: rotateY(180deg);
-  border: 2px solid #4261e4;
-}
-
-.flip-icon {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 40px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 0;
-}
-
-.flip-card-front h3 {
-  font-size: 24px;
-  font-weight: 600;
-  margin: 0;
-}
-
-.flip-card-back p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #555;
-}
-
-
-/* ------------------------------------- FOOTER ------------------------------------ */
 .footer-section {
   background: #1e293b;
   color: #fff;
   padding: 60px 0 20px;
-  font-family: "Inter", sans-serif;
+  font-family: \"Inter\", sans-serif;
 }
 
-/* Контейнер и сетка */
+/* Лого и текст */
 .footer-logo {
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 20px;
   color: #fff;
 }
-.footer-about {
-  text-align: left;        /* Весь блок выровнен влево */
-}
 
-.footer-about p {
+.footer-section p {
   margin-bottom: 20px;
   opacity: 0.8;
   line-height: 1.6;
-   text-align: left; 
+  text-align: left;
 }
+
 .contact-info {
   display: flex;
   flex-direction: column;
@@ -943,18 +2001,11 @@ body {
   align-items: flex-start;
 }
 
-@media (max-width: 768px) {
-  .contact-info {
-    align-items: center;
-  }
-}
-
 .contact-info p {
   margin-bottom: 8px;
   opacity: 0.8;
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 8px;
 }
 
@@ -1017,6 +2068,7 @@ body {
   color: white;
   margin: 0 6px;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .social-links a:hover {
@@ -1063,6 +2115,10 @@ body {
   text-align: center;
 }
 
+.footer-bottom p {
+  text-align: center;
+}
+
 .footer-bottom-links a {
   color: rgba(255, 255, 255, 0.7);
   margin: 0 10px;
@@ -1074,17 +2130,266 @@ body {
   color: #3498db;
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-  .footer-section .row > div {
-    text-align: center;
+/* === FOOTER RESPONSIVE === */
+
+/* Большие экраны / 4K (≥ 1920px) */
+@media (min-width: 1920px) {
+  .footer-section {
+    padding: 80px 0 30px;
+  }
+  
+  .footer-logo {
+    font-size: 28px;
+    margin-bottom: 25px;
+  }
+  
+  .footer-section p {
+    font-size: 17px;
+    margin-bottom: 25px;
+  }
+  
+  .contact-info p {
+    font-size: 17px;
+    margin-bottom: 12px;
+  }
+  
+  .footer-heading {
+    font-size: 22px;
+    margin-bottom: 25px;
+  }
+  
+  .newsletter-form input {
+    padding: 12px 18px;
+    font-size: 16px;
+  }
+  
+  .newsletter-form button {
+    padding: 12px;
+    font-size: 16px;
+  }
+  
+  .social-links a {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+  
+  .gallery {
+    gap: 12px;
+  }
+  
+  .gallery-item {
+    height: 100px;
+    max-width: 120px;
+  }
+  
+  .footer-bottom {
+    margin-top: 50px;
+    padding-top: 20px;
+  }
+  
+  .footer-bottom p,
+  .footer-bottom-links a {
+    font-size: 16px;
   }
 }
 
+/* Стандартные мониторы (≤ 1440px) */
+@media (max-width: 1440px) {
+  .footer-section {
+    padding: 55px 0 20px;
+  }
+}
+
+/* Малые ноутбуки (≤ 1280px) */
+@media (max-width: 1280px) {
+  .footer-section {
+    padding: 50px 0 20px;
+  }
+  
+  .footer-logo {
+    font-size: 22px;
+  }
+  
+  .footer-heading {
+    font-size: 17px;
+  }
+}
+
+/* Планшеты (≤ 1024px) */
+@media (max-width: 1024px) {
+  .footer-section {
+    padding: 45px 0 20px;
+  }
+  
+  .footer-section .row > div {
+    margin-bottom: 30px;
+  }
+}
+
+/* Большие телефоны / малые планшеты (≤ 768px) */
 @media (max-width: 768px) {
+  .footer-section {
+    padding: 40px 0 15px;
+  }
+  
+  .footer-section .row > div {
+    text-align: center;
+  }
+  
+  .footer-section p {
+    text-align: center;
+  }
+  
+  .contact-info {
+    align-items: center;
+  }
+  
+  .footer-logo {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+  
+  .footer-heading {
+    font-size: 18px;
+  }
+  
+  .gallery {
+    justify-content: center;
+  }
+  
   .footer-bottom {
     flex-direction: column;
     gap: 10px;
+    margin-top: 30px;
+  }
+  
+  .footer-bottom p {
+    font-size: 14px;
+  }
+  
+  .footer-bottom-links a {
+    font-size: 14px;
   }
 }
-/* ------------------------------------------------------------------------- */
+
+/* Стандартные телефоны (≤ 480px) */
+@media (max-width: 480px) {
+  .footer-section {
+    padding: 30px 0 15px;
+  }
+  
+  .footer-logo {
+    font-size: 20px;
+  }
+  
+  .footer-section p {
+    font-size: 14px;
+  }
+  
+  .contact-info p {
+    font-size: 14px;
+  }
+  
+  .footer-heading {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  
+  .newsletter-form input {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+  
+  .newsletter-form button {
+    padding: 8px;
+    font-size: 14px;
+  }
+  
+  .social-links a {
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+  
+  .gallery-item {
+    height: 70px;
+    max-width: 90px;
+  }
+  
+  .footer-bottom p,
+  .footer-bottom-links a {
+    font-size: 13px;
+  }
+}
+
+/* Малые телефоны (≤ 400px) */
+@media (max-width: 400px) {
+  .footer-section {
+    padding: 25px 0 10px;
+  }
+  
+  .footer-logo {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+  
+  .footer-section p {
+    font-size: 13px;
+    margin-bottom: 15px;
+  }
+  
+  .contact-info p {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+  
+  .footer-heading {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+  
+  .newsletter-form input {
+    padding: 7px 10px;
+    font-size: 13px;
+  }
+  
+  .newsletter-form button {
+    padding: 7px;
+    font-size: 13px;
+  }
+  
+  .social-links a {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+    margin: 0 4px;
+  }
+  
+  .gallery {
+    gap: 8px;
+  }
+  
+  .gallery-item {
+    height: 60px;
+    max-width: 80px;
+  }
+  
+  .footer-bottom {
+    margin-top: 20px;
+    padding-top: 10px;
+  }
+  
+  .footer-bottom p,
+  .footer-bottom-links a {
+    font-size: 12px;
+  }
+  
+  .footer-bottom-links a {
+    margin: 0 5px;
+  }
+}
+
+/* ========================================================================
+   КОНЕЦ ФАЙЛА СТИЛЕЙ
+   ======================================================================== */
