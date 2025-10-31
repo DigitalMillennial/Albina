@@ -28,7 +28,7 @@ function openCourseModal(type) {
         </div>
         <div class="modal-footer">
           <button class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-          <button class="btn btn-primary" onclick="submitCourseForm('${type}')">Envoyer</button>
+          <button class="btn btn-primary" onclick="submitCourseForm('${type}')">Suivant</button>
         </div>
       </div>
     </div>
@@ -52,3 +52,4 @@ function submitCourseForm(type) {
     form.reportValidity();
   }
 }
+
