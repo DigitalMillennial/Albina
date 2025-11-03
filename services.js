@@ -70,18 +70,27 @@ function openModal(type) {
         
         <!-- Контейнер выбора времени (появляется после выбора даты) -->
         <div id="time-picker-${type}" class="time-picker-container">
-          <label class="time-label">Heure souhaitée</label>
+          <!-- Кнопка выбора времени (свернутый вид) -->
+          <div class="time-select-button" id="time-button-${type}" onclick="toggleClock('${type}')">
+            <span id="time-text-${type}">Sélectionner une heure</span>
+            <i class="fas fa-clock"></i>
+          </div>
           
-          <!-- Отображение выбранного времени -->
-          <div class="time-display" id="time-display-${type}">--:--</div>
-          
-          <!-- Круглый циферблат -->
-          <div class="clock-picker" id="clock-picker-${type}">
-            <!-- Центральная точка -->
-            <div class="clock-center"></div>
-            <!-- Стрелка -->
-            <div class="clock-hand" id="clock-hand-${type}"></div>
-            <!-- Цифры будут добавлены динамически -->
+          <!-- Контейнер часов (развернутый вид, скрыт по умолчанию) -->
+          <div id="clock-container-${type}" class="clock-container">
+            <label class="time-label">Heure souhaitée</label>
+            
+            <!-- Отображение выбранного времени -->
+            <div class="time-display" id="time-display-${type}">--:--</div>
+            
+            <!-- Круглый циферблат -->
+            <div class="clock-picker" id="clock-picker-${type}">
+              <!-- Центральная точка -->
+              <div class="clock-center"></div>
+              <!-- Стрелка -->
+              <div class="clock-hand" id="clock-hand-${type}"></div>
+              <!-- Цифры будут добавлены динамически -->
+            </div>
           </div>
           
           <!-- Скрытое поле для хранения времени -->
@@ -175,6 +184,15 @@ function toggleCalendar(type) {
 }
 
 /**
+ * Переключение отображения часов (свернуть/развернуть)
+ * @param {string} type - Тип услуги
+ */
+function toggleClock(type) {
+  const clockContainer = document.getElementById(`clock-container-${type}`);
+  clockContainer.classList.toggle('active');
+}
+
+/**
  * Инициализация inline календаря
  * @param {string} type - Тип услуги
  */
@@ -238,12 +256,12 @@ function initClockPicker(type) {
     existingNumbers.forEach(num => num.remove());
     
     const numbers = mode === 'hours' ? [12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] : [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55];
-    const radius = 110; // Радиус размещения цифр
+    const radius = 50; // Уменьшенный радиус для размера 150px
     
     numbers.forEach((num, index) => {
       const angle = (index * 30 - 90) * (Math.PI / 180); // Начинаем с 12 часов (верх)
-      const x = radius * Math.cos(angle) + 140 - 20; // Центр - размер элемента/2
-      const y = radius * Math.sin(angle) + 140 - 20;
+      const x = radius * Math.cos(angle) + 75 - 15; // Центр (75) - размер элемента/2 (15)
+      const y = radius * Math.sin(angle) + 75 - 15;
       
       const numberDiv = document.createElement('div');
       numberDiv.className = 'clock-number';
@@ -265,6 +283,13 @@ function initClockPicker(type) {
           // Сохранение времени
           const timeString = `${String(selectedHour).padStart(2, '0')}:${String(selectedMinute).padStart(2, '0')}`;
           document.getElementById(`selected-time-${type}`).value = timeString;
+          
+          // Обновление текста кнопки времени
+          document.getElementById(`time-text-${type}`).textContent = timeString;
+          
+          // Свернуть контейнер часов после выбора
+          const clockContainer = document.getElementById(`clock-container-${type}`);
+          clockContainer.classList.remove('active');
         }
       });
       
