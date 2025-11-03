@@ -82,7 +82,7 @@
   background: rgba(255, 255, 255, 0.95);
   color: #222;
   padding: 30px;
-  border-radius: 10px;
+  border-radius: 0px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
   min-height: 300px;
 }
@@ -243,10 +243,47 @@
   display: block;
 }
 
+/* Кнопка выбора времени (свернутый вид) */
+.time-select-button {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #ffffff 0%, #f9f7f4 100%);
+  border: 2px solid #2575fc;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.time-select-button:hover {
+  background: linear-gradient(135deg, #f9f7f4 0%, #f5f2ed 100%);
+  box-shadow: 0 4px 15px rgba(37, 117, 252, 0.2);
+}
+
+.time-select-button i {
+  color: #2575fc;
+}
+
+/* Контейнер часов (развернутый вид) */
+.clock-container {
+  display: none;
+}
+
+.clock-container.active {
+  display: block;
+}
+
 /* Круглый циферблат */
 .clock-picker {
-  width: 280px;
-  height: 280px;
+  width: 150px;
+  height: 150px;
   margin: 20px auto;
   position: relative;
   background: #ffffff;
@@ -260,8 +297,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 12px;
-  height: 12px;
+  width: 8px;
+  height: 8px;
   background: #2575fc;
   border-radius: 50%;
   transform: translate(-50%, -50%);
@@ -273,8 +310,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 3px;
-  height: 90px;
+  width: 2px;
+  height: 50px;
   background: #2575fc;
   transform-origin: 50% 100%;
   transform: translate(-50%, -100%) rotate(0deg);
@@ -286,12 +323,12 @@
 /* Цифры на циферблате */
 .clock-number {
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 27px;
+  height: 27px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 600;
   color: #333;
   cursor: pointer;
@@ -437,11 +474,674 @@
   }
   
   .clock-picker {
-    width: 240px;
-    height: 240px;
+    width: 150px;
+    height: 150px;
   }
   
   .clock-hand {
-    height: 70px;
+    height: 50px;
+  }
+}
+/* ============================================ */
+/* RESPONSIVE - Адаптивность */
+/* ============================================ */
+
+/* === SERVICES SECTION RESPONSIVE === */
+
+/* Большие экраны / 4K (≥ 1920px) */
+@media (min-width: 1920px) {
+  .services-section {
+    padding: 140px 40px;
+  }
+  
+  .section-title {
+    font-size: 52px;
+    margin-bottom: 30px;
+  }
+  
+  .section-subtitle {
+    font-size: 22px;
+    margin-bottom: 80px;
+  }
+  
+  .services-grid {
+    max-width: 1600px;
+    gap: 50px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .flip-card-front,
+  .flip-card-back {
+    padding: 50px 40px;
+    min-height: 380px;
+  }
+  
+  .service-icon {
+    font-size: 64px;
+    margin-bottom: 30px;
+  }
+  
+  .flip-card-front h3,
+  .flip-card-back h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .flip-card-front p,
+  .flip-card-back p {
+    font-size: 18px;
+  }
+  
+  .flip-card-back .btn {
+    padding: 16px 40px;
+    font-size: 18px;
+  }
+}
+
+/* Стандартные мониторы (≤ 1440px) */
+@media (max-width: 1440px) {
+  .services-section {
+    padding: 90px 30px;
+  }
+  
+  .section-title {
+    font-size: 40px;
+  }
+  
+  .services-grid {
+    max-width: 1100px;
+    gap: 35px;
+  }
+  
+  .flip-card-front,
+  .flip-card-back {
+    padding: 35px 28px;
+  }
+}
+
+/* Малые ноутбуки (≤ 1280px) */
+@media (max-width: 1280px) {
+  .services-section {
+    padding: 80px 25px;
+  }
+  
+  .section-title {
+    font-size: 38px;
+    margin-bottom: 18px;
+  }
+  
+  .section-subtitle {
+    font-size: 17px;
+    margin-bottom: 55px;
+  }
+  
+  .services-grid {
+    max-width: 1000px;
+    gap: 30px;
+  }
+  
+  .flip-card-front,
+  .flip-card-back {
+    padding: 32px 26px;
+    min-height: 280px;
+  }
+  
+  .service-icon {
+    font-size: 44px;
+  }
+}
+
+/* Планшеты (≤ 1024px) */
+@media (max-width: 1024px) {
+  .services-section {
+    padding: 70px 20px;
+  }
+  
+  .section-title {
+    font-size: 36px;
+  }
+  
+  .section-subtitle {
+    font-size: 16px;
+    margin-bottom: 50px;
+  }
+  
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+  }
+  
+  .flip-card-front,
+  .flip-card-back {
+    padding: 30px 24px;
+    min-height: 270px;
+  }
+  
+  .service-icon {
+    font-size: 42px;
+    margin-bottom: 18px;
+  }
+  
+  .flip-card-front h3,
+  .flip-card-back h3 {
+    font-size: 20px;
+  }
+  
+  .flip-card-front p,
+  .flip-card-back p {
+    font-size: 15px;
+  }
+}
+
+/* Большие телефоны / малые планшеты (≤ 768px) */
+@media (max-width: 768px) {
+  .services-section {
+    padding: 60px 15px;
+  }
+  
+  .section-title {
+    font-size: 32px;
+    margin-bottom: 15px;
+  }
+  
+  .section-subtitle {
+    font-size: 15px;
+    margin-bottom: 40px;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .flip-card-front,
+  .flip-card-back {
+    padding: 28px 22px;
+    min-height: 260px;
+  }
+  
+  .service-icon {
+    font-size: 40px;
+    margin-bottom: 16px;
+  }
+  
+  .flip-card-front h3,
+  .flip-card-back h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+  
+  .flip-card-front p,
+  .flip-card-back p {
+    font-size: 15px;
+  }
+  
+  .flip-card-back .btn {
+    padding: 10px 25px;
+    font-size: 14px;
+  }
+}
+
+/* Стандартные телефоны (≤ 480px) */
+@media (max-width: 480px) { 
+  .services-section {
+    padding: 50px 10px;
+  }
+  
+  .section-title {
+    font-size: 26px;
+    margin-bottom: 12px;
+  }
+  
+  .section-subtitle {
+    font-size: 14px;
+    margin-bottom: 35px;
+  }
+  
+  .services-grid {
+    gap: 20px;
+  }
+  
+  .flip-card-front,
+  .flip-card-back {
+    padding: 25px 18px;
+    min-height: 240px;
+  }
+  
+  .service-icon {
+    font-size: 36px;
+    margin-bottom: 14px;
+  }
+  
+  .flip-card-front h3,
+  .flip-card-back h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .flip-card-front p,
+  .flip-card-back p {
+    font-size: 14px;
+  }
+  
+  .flip-card-back .btn {
+    padding: 8px 20px;
+    font-size: 13px;
+  }
+}
+
+/* Малые телефоны (≤ 400px) */
+@media (max-width: 400px) {
+  .services-section {
+    padding: 40px 8px;
+  }
+  
+  .section-title {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  
+  .section-subtitle {
+    font-size: 13px;
+    margin-bottom: 30px;
+  }
+  
+  .services-grid {
+    gap: 18px;
+  }
+  
+  .flip-card-front,
+  .flip-card-back {
+    padding: 22px 15px;
+    min-height: 220px;
+  }
+  
+  .service-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+  
+  .flip-card-front h3,
+  .flip-card-back h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  
+  .flip-card-front p,
+  .flip-card-back p {
+    font-size: 13px;
+  }
+  
+  .flip-card-back .btn {
+    padding: 7px 18px;
+    font-size: 12px;
+  }
+  
+  .badge {
+    font-size: 10px;
+    padding: 3px 6px;
+  }
+}
+
+/* === MODAL RESPONSIVE === */
+
+/* Большие экраны / 4K (≥ 1920px) */
+@media (min-width: 1920px) {
+  .modal-dialog.modal-xl {
+    max-width: 1400px;
+  }
+  
+  .modal-header {
+    padding: 25px 30px;
+  }
+  
+  .modal-title {
+    font-size: 26px;
+  }
+  
+  .modal-body {
+    padding: 40px 30px;
+  }
+  
+  .form-control {
+    padding: 14px;
+    font-size: 16px;
+  }
+  
+  .modal-body h6 {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  
+  .clock-picker {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .clock-hand {
+    height: 60px;
+  }
+  
+  .clock-number {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+  
+  .time-display {
+    font-size: 36px;
+    padding: 18px;
+  }
+  
+  .upload-icon {
+    font-size: 72px;
+  }
+  
+  .upload-text {
+    font-size: 18px;
+  }
+}
+
+/* Стандартные мониторы (≤ 1440px) */
+@media (max-width: 1440px) {
+  .modal-dialog.modal-xl {
+    max-width: 1100px;
+  }
+}
+
+/* Малые ноутбуки (≤ 1280px) */
+@media (max-width: 1280px) {
+  .modal-dialog.modal-xl {
+    max-width: 1000px;
+  }
+  
+  .modal-title {
+    font-size: 20px;
+  }
+}
+
+/* Планшеты (≤ 1024px) */
+@media (max-width: 1024px) {
+  .modal-dialog.modal-xl {
+    max-width: 90%;
+    margin: 20px auto;
+  }
+  
+  .modal-body .row {
+    gap: 20px;
+  }
+  
+  .clock-picker {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+/* Большие телефоны / малые планшеты (≤ 768px) */
+@media (max-width: 768px) {
+  .modal-dialog {
+    margin: 10px;
+    max-width: calc(100% - 20px);
+  }
+  
+  .modal-header {
+    padding: 15px 20px;
+  }
+  
+  .modal-title {
+    font-size: 18px;
+  }
+  
+  .modal-body {
+    padding: 25px 20px;
+  }
+  
+  .modal-body .row {
+    flex-direction: column;
+  }
+  
+  .modal-body .col-md-6 {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  
+  .modal-body h6 {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .form-control {
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .clock-picker {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .clock-hand {
+    height: 50px;
+  }
+  
+  .clock-number {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+  
+  .time-display {
+    font-size: 28px;
+    padding: 12px;
+  }
+  
+  .upload-icon {
+    font-size: 56px;
+  }
+  
+  .upload-text {
+    font-size: 15px;
+  }
+  
+  .document-upload-area {
+    padding: 30px 20px;
+  }
+}
+
+/* Стандартные телефоны (≤ 480px) */
+@media (max-width: 480px) {
+  .modal-dialog {
+    margin: 5px;
+    max-width: calc(100% - 10px);
+  }
+  
+  .modal-header {
+    padding: 12px 15px;
+  }
+  
+  .modal-title {
+    font-size: 16px;
+  }
+  
+  .modal-body {
+    padding: 20px 15px;
+  }
+  
+  .modal-body h6 {
+    font-size: 15px;
+  }
+  
+  .form-control {
+    padding: 9px;
+    font-size: 13px;
+  }
+  
+  .mb-3 {
+    margin-bottom: 12px !important;
+  }
+  
+  .clock-picker {
+    width: 140px;
+    height: 140px;
+    margin: 15px auto;
+  }
+  
+  .clock-hand {
+    height: 45px;
+  }
+  
+  .clock-center {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .clock-number {
+    width: 18px;
+    height: 18px;
+    font-size: 11px;
+  }
+  
+  .time-display {
+    font-size: 24px;
+    padding: 10px;
+    margin-bottom: 5px;
+  }
+  
+  .time-label {
+    font-size: 13px;
+  }
+  
+  .date-select-button,
+  .time-select-button {
+    padding: 12px;
+    font-size: 14px;
+  }
+  
+  .upload-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+  }
+  
+  .upload-text {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  
+  .document-upload-area {
+    padding: 25px 15px;
+  }
+  
+  .file-input-label {
+    padding: 12px 25px;
+    font-size: 14px;
+  }
+  
+  .modal-footer {
+    padding: 12px 15px;
+  }
+  
+  .modal-footer .btn {
+    padding: 8px 20px;
+    font-size: 13px;
+  }
+}
+
+/* Малые телефоны (≤ 400px) */
+@media (max-width: 400px) {
+  .modal-dialog {
+    margin: 5px;
+  }
+  
+  .modal-header {
+    padding: 10px 12px;
+  }
+  
+  .modal-title {
+    font-size: 14px;
+  }
+  
+  .modal-body {
+    padding: 15px 12px;
+  }
+  
+  .modal-body h6 {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  
+  .form-control {
+    padding: 8px;
+    font-size: 12px;
+  }
+  
+  .clock-picker {
+    width: 130px;
+    height: 130px;
+    margin: 12px auto;
+  }
+  
+  .clock-hand {
+    height: 40px;
+    width: 2px;
+  }
+  
+  .clock-center {
+    width: 5px;
+    height: 5px;
+  }
+  
+  .clock-number {
+    width: 10px;
+    height: 10px;
+    font-size: 10px;
+  }
+  
+  .time-display {
+    font-size: 22px;
+    padding: 8px;
+  }
+  
+  .time-label {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+  
+  .date-select-button,
+  .time-select-button {
+    padding: 10px;
+    font-size: 13px;
+  }
+  
+  .upload-icon {
+    font-size: 42px;
+    margin-bottom: 12px;
+  }
+  
+  .upload-text {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+  
+  .document-upload-area {
+    padding: 20px 12px;
+  }
+  
+  .file-input-label {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+  
+  .file-name-display {
+    font-size: 12px;
+    padding: 8px;
+  }
+  
+  .modal-footer {
+    padding: 10px 12px;
+  }
+  
+  .modal-footer .btn {
+    padding: 7px 15px;
+    font-size: 12px;
   }
 }
