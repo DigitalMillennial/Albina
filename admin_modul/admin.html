@@ -102,7 +102,18 @@
     <section class="content-section active">
       <div class="stats-grid">
         <!-- Статистика 1: Всего студентов -->
-        <div class="stat-card">
+        <!-- 
+          TODO LARAVEL BACKEND:
+          API Endpoint: GET /api/admin/stats/students
+          Response JSON:
+          {
+            "success": true,
+            "data": {
+              "count": 248
+            }
+          }
+        -->
+        <div class="stat-card" data-stat="students">
           <div class="stat-icon blue">
             <i class="fas fa-users"></i>
           </div>
@@ -113,7 +124,18 @@
         </div>
 
         <!-- Статистика 2: Активные курсы -->
-        <div class="stat-card">
+        <!-- 
+          TODO LARAVEL BACKEND:
+          API Endpoint: GET /api/admin/stats/courses
+          Response JSON:
+          {
+            "success": true,
+            "data": {
+              "count": 12
+            }
+          }
+        -->
+        <div class="stat-card" data-stat="courses">
           <div class="stat-icon green">
             <i class="fas fa-book-open"></i>
           </div>
@@ -124,7 +146,19 @@
         </div>
 
         <!-- Статистика 3: Заявки -->
-        <div class="stat-card">
+        <!-- 
+          TODO LARAVEL BACKEND:
+          API Endpoint: GET /api/admin/stats/reservations
+          Response JSON:
+          {
+            "success": true,
+            "data": {
+              "count": 45,
+              "month": "current"
+            }
+          }
+        -->
+        <div class="stat-card" data-stat="reservations">
           <div class="stat-icon orange">
             <i class="fas fa-calendar-check"></i>
           </div>
@@ -135,7 +169,21 @@
         </div>
 
         <!-- Статистика 4: Доход -->
-        <div class="stat-card">
+        <!-- 
+          TODO LARAVEL BACKEND:
+          API Endpoint: GET /api/admin/stats/revenue
+          Response JSON:
+          {
+            "success": true,
+            "data": {
+              "amount": "8450.00",
+              "currency": "EUR",
+              "month": "current",
+              "formatted": "8,450€"
+            }
+          }
+        -->
+        <div class="stat-card" data-stat="revenue">
           <div class="stat-icon purple">
             <i class="fas fa-euro-sign"></i>
           </div>
@@ -146,41 +194,73 @@
         </div>
       </div>
 
-      <!-- Последние заявки -->
+      <!-- Последние заказы -->
+      <!-- 
+        TODO LARAVEL BACKEND:
+        API Endpoint: GET /api/admin/orders/latest?limit=5
+        Response JSON Structure:
+        {
+          "success": true,
+          "data": [
+            {
+              "id": 1,
+              "client_name": "Marie Dupont",
+              "object": "Cours individuel",
+              "payment_date": "2025-01-15",
+              "amount": "150.00",
+              "currency": "EUR",
+              "formatted_amount": "150€"
+            },
+            {
+              "id": 2,
+              "client_name": "Jean Martin",
+              "object": "Groupe A2",
+              "payment_date": "2025-01-16",
+              "amount": "200.00",
+              "currency": "EUR",
+              "formatted_amount": "200€"
+            }
+          ],
+          "total": 45
+        }
+        
+        JavaScript function to load data: loadLatestOrders() in admin.js
+      -->
       <div class="dashboard-row">
         <div class="card">
           <div class="card-header">
-            <h3>Dernières réservations</h3>
+            <h3>Commandes</h3>
             <a href="admin_reservations.html">Voir tout</a>
           </div>
           <div class="table-responsive">
-            <table class="data-table">
+            <table class="data-table" id="ordersTable">
               <thead>
                 <tr>
-                  <th>Nom</th>
-                  <th>Cours/Service</th>
-                  <th>Date</th>
-                  <th>Statut</th>
+                  <th>Client</th>
+                  <th>Objet</th>
+                  <th>Date de paiement</th>
+                  <th>Montant</th>
                 </tr>
               </thead>
               <tbody>
+                <!-- Data will be loaded via JavaScript/Laravel API -->
                 <tr>
                   <td>Marie Dupont</td>
                   <td>Cours individuel</td>
                   <td>15/01/2025</td>
-                  <td><span class="badge badge-success">Confirmé</span></td>
+                  <td>150€</td>
                 </tr>
                 <tr>
                   <td>Jean Martin</td>
                   <td>Groupe A2</td>
                   <td>16/01/2025</td>
-                  <td><span class="badge badge-warning">En attente</span></td>
+                  <td>200€</td>
                 </tr>
                 <tr>
                   <td>Sophie Bernard</td>
                   <td>Traduction orale</td>
                   <td>17/01/2025</td>
-                  <td><span class="badge badge-success">Confirmé</span></td>
+                  <td>180€</td>
                 </tr>
               </tbody>
             </table>
