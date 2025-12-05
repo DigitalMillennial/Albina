@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - Tests de niveau | Français avec Albina</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+  <!-- Контейнер для модальных окон -->
+  <div id="modalContainer"></div>
+
+  <!-- ============================================ -->
+  <!-- SIDEBAR -->
+  <!-- ============================================ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="admin-logo">
+        <i class="fas fa-graduation-cap"></i>
+        <span>Admin Panel</span>
+      </div>
+      <button class="sidebar-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="admin.html" class="nav-item">
+        <i class="fas fa-chart-line"></i>
+        <span>Dashboard</span>
+      </a>
+      <a href="admin_cours.html" class="nav-item">
+        <i class="fas fa-book"></i>
+        <span>Gestion des cours</span>
+      </a>
+      <a href="admin_services.html" class="nav-item">
+        <i class="fas fa-concierge-bell"></i>
+        <span>Gestion des services</span>
+      </a>
+      <a href="admin_reservations.html" class="nav-item">
+        <i class="fas fa-calendar-check"></i>
+        <span>Réservations</span>
+      </a>
+      <a href="admin_etudiants.html" class="nav-item">
+        <i class="fas fa-users"></i>
+        <span>Étudiants</span>
+      </a>
+      <a href="admin_ressources.html" class="nav-item">
+        <i class="fas fa-folder-open"></i>
+        <span>Ressources</span>
+      </a>
+      <a href="admin_pages.html" class="nav-item">
+        <i class="fas fa-file-alt"></i>
+        <span>Pages du site</span>
+      </a>
+      <a href="admin_test.html" class="nav-item active">
+        <i class="fas fa-tasks"></i>
+        <span>Tests de niveau</span>
+      </a>
+      <a href="admin_parametres.html" class="nav-item">
+        <i class="fas fa-cog"></i>
+        <span>Paramètres</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="admin-profile">
+        <img src="https://ui-avatars.com/api/?name=Albina&background=2575fc&color=fff" alt="Admin">
+        <div>
+          <div class="admin-name">Albina</div>
+          <div class="admin-role">Administrateur</div>
+        </div>
+        <a href="index.html" class="btn-logout">
+          <i class="fas fa-sign-out-alt"></i>        
+        </a>
+      </div>      
+    </div>
+  </aside>
+
+  <!-- ============================================ -->
+  <!-- MAIN CONTENT -->
+  <!-- ============================================ -->
+  <main class="main-content">
+    <!-- HEADER -->
+    <header class="top-header">
+      <button class="mobile-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+      </button>
+      <h1 class="page-title">Tests de niveau</h1>
+      <div class="header-actions">
+        <button class="btn-icon" title="Notifications">
+          <i class="fas fa-bell"></i>
+          <span class="badge">3</span>
+        </button>
+        <button class="btn-icon" title="Messages">
+          <i class="fas fa-envelope"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- ============================================ -->
+    <!-- QUESTIONS TABLE -->
+    <!-- ============================================ -->
+    <section class="content-section active">
+      <div class="section-header">
+        <h2>Questions et réponses du test</h2>
+        <button class="btn btn-primary" onclick="addQuestionRow()">
+          <i class="fas fa-plus"></i> Ajouter une question
+        </button>
+      </div>
+
+      <div class="card">
+        <div class="table-responsive">
+          <table class="data-table" id="questionsTable">
+            <thead>
+              <tr>
+                <th>Questions</th>
+                <th>Réponses</th>
+                <th>Points</th>
+                <th>Niveau</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Laravel будет генерировать строки через @foreach -->
+              <!-- Пример статической строки: -->
+              <tr>
+                <td>Quel est votre nom?</td>
+                <td>Je m'appelle [nom]</td>
+                <td>5</td>
+                <td>
+                  <select class="form-select form-select-sm level-select">
+                    <option value="A0">A0</option>
+                    <option value="A1" selected>A1</option>
+                    <option value="A2">A2</option>
+                    <option value="B1">B1</option>
+                    <option value="B2">B2</option>
+                    <option value="C1">C1</option>
+                    <option value="C2">C2</option>
+                  </select>
+                </td>
+                <td>
+                  <button class="btn-action" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" title="Sauvegarder">
+                    <i class="fas fa-save"></i>
+                  </button>
+                  <button class="btn-action btn-danger" title="Supprimer" onclick="deleteQuestionRow(this)">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Comment allez-vous?</td>
+                <td>Je vais bien, merci</td>
+                <td>3</td>
+                <td>
+                  <select class="form-select form-select-sm level-select">
+                    <option value="A0" selected>A0</option>
+                    <option value="A1">A1</option>
+                    <option value="A2">A2</option>
+                    <option value="B1">B1</option>
+                    <option value="B2">B2</option>
+                    <option value="C1">C1</option>
+                    <option value="C2">C2</option>
+                  </select>
+                </td>
+                <td>
+                  <button class="btn-action" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" title="Sauvegarder">
+                    <i class="fas fa-save"></i>
+                  </button>
+                  <button class="btn-action btn-danger" title="Supprimer" onclick="deleteQuestionRow(this)">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Quelle est votre profession?</td>
+                <td>Je suis [profession]</td>
+                <td>7</td>
+                <td>
+                  <select class="form-select form-select-sm level-select">
+                    <option value="A0">A0</option>
+                    <option value="A1">A1</option>
+                    <option value="A2" selected>A2</option>
+                    <option value="B1">B1</option>
+                    <option value="B2">B2</option>
+                    <option value="C1">C1</option>
+                    <option value="C2">C2</option>
+                  </select>
+                </td>
+                <td>
+                  <button class="btn-action" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" title="Sauvegarder">
+                    <i class="fas fa-save"></i>
+                  </button>
+                  <button class="btn-action btn-danger" title="Supprimer" onclick="deleteQuestionRow(this)">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ============================================ -->
+      <!-- RESULTS TABLE -->
+      <!-- ============================================ -->
+      <div class="section-header mt-5">
+        <h2>Résultats et niveaux</h2>
+        <button class="btn btn-primary" onclick="addLevelRow()">
+          <i class="fas fa-plus"></i> Ajouter un niveau
+        </button>
+      </div>
+
+      <div class="card">
+        <div class="table-responsive">
+          <table class="data-table" id="levelsTable">
+            <thead>
+              <tr>
+                <th>Min</th>
+                <th>Max</th>
+                <th>Niveau</th>
+                <th>Message</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Laravel будет генерировать строки через @foreach -->
+              <!-- Пример статической строки: -->
+              <tr>
+                <td>
+                  <input type="number" class="form-control form-control-sm" value="0" min="0" max="100">
+                </td>
+                <td>
+                  <input type="number" class="form-control form-control-sm" value="20" min="0" max="100">
+                </td>
+                <td>
+                  <select class="form-select form-select-sm level-select">
+                    <option value="A0" selected>A0</option>
+                    <option value="A1">A1</option>
+                    <option value="A2">A2</option>
+                    <option value="B1">B1</option>
+                    <option value="B2">B2</option>
+                    <option value="C1">C1</option>
+                    <option value="C2">C2</option>
+                  </select>
+                </td>
+                <td>Niveau débutant. Continuez à pratiquer!</td>
+                <td>
+                  <button class="btn-action" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" title="Sauvegarder">
+                    <i class="fas fa-save"></i>
+                  </button>
+                  <button class="btn-action btn-danger" title="Supprimer" onclick="deleteLevelRow(this)">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="number" class="form-control form-control-sm" value="21" min="0" max="100">
+                </td>
+                <td>
+                  <input type="number" class="form-control form-control-sm" value="40" min="0" max="100">
+                </td>
+                <td>
+                  <select class="form-select form-select-sm level-select">
+                    <option value="A0">A0</option>
+                    <option value="A1" selected>A1</option>
+                    <option value="A2">A2</option>
+                    <option value="B1">B1</option>
+                    <option value="B2">B2</option>
+                    <option value="C1">C1</option>
+                    <option value="C2">C2</option>
+                  </select>
+                </td>
+                <td>Bon début! Vous êtes au niveau élémentaire.</td>
+                <td>
+                  <button class="btn-action" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" title="Sauvegarder">
+                    <i class="fas fa-save"></i>
+                  </button>
+                  <button class="btn-action btn-danger" title="Supprimer" onclick="deleteLevelRow(this)">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="number" class="form-control form-control-sm" value="41" min="0" max="100">
+                </td>
+                <td>
+                  <input type="number" class="form-control form-control-sm" value="60" min="0" max="100">
+                </td>
+                <td>
+                  <select class="form-select form-select-sm level-select">
+                    <option value="A0">A0</option>
+                    <option value="A1">A1</option>
+                    <option value="A2" selected>A2</option>
+                    <option value="B1">B1</option>
+                    <option value="B2">B2</option>
+                    <option value="C1">C1</option>
+                    <option value="C2">C2</option>
+                  </select>
+                </td>
+                <td>Très bien! Niveau pré-intermédiaire atteint.</td>
+                <td>
+                  <button class="btn-action" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" title="Sauvegarder">
+                    <i class="fas fa-save"></i>
+                  </button>
+                  <button class="btn-action btn-danger" title="Supprimer" onclick="deleteLevelRow(this)">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="number" class="form-control form-control-sm" value="61" min="0" max="100">
+                </td>
+                <td>
+                  <input type="number" class="form-control form-control-sm" value="80" min="0" max="100">
+                </td>
+                <td>
+                  <select class="form-select form-select-sm level-select">
+                    <option value="A0">A0</option>
+                    <option value="A1">A1</option>
+                    <option value="A2">A2</option>
+                    <option value="B1" selected>B1</option>
+                    <option value="B2">B2</option>
+                    <option value="C1">C1</option>
+                    <option value="C2">C2</option>
+                  </select>
+                </td>
+                <td>Excellent! Vous avez un niveau intermédiaire.</td>
+                <td>
+                  <button class="btn-action" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" title="Sauvegarder">
+                    <i class="fas fa-save"></i>
+                  </button>
+                  <button class="btn-action btn-danger" title="Supprimer" onclick="deleteLevelRow(this)">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="number" class="form-control form-control-sm" value="81" min="0" max="100">
+                </td>
+                <td>
+                  <input type="number" class="form-control form-control-sm" value="100" min="0" max="100">
+                </td>
+                <td>
+                  <select class="form-select form-select-sm level-select">
+                    <option value="A0">A0</option>
+                    <option value="A1">A1</option>
+                    <option value="A2">A2</option>
+                    <option value="B1">B1</option>
+                    <option value="B2" selected>B2</option>
+                    <option value="C1">C1</option>
+                    <option value="C2">C2</option>
+                  </select>
+                </td>
+                <td>Bravo! Vous maîtrisez bien le français.</td>
+                <td>
+                  <button class="btn-action" title="Modifier">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn-action" title="Sauvegarder">
+                    <i class="fas fa-save"></i>
+                  </button>
+                  <button class="btn-action btn-danger" title="Supprimer" onclick="deleteLevelRow(this)">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SAVE BUTTON -->
+      <div class="text-center mt-4 mb-5">
+        <button class="btn btn-primary btn-lg">
+          <i class="fas fa-save"></i>
+          Sauvegarder le texte
+        </button>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
