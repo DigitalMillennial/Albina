@@ -84,44 +84,44 @@ function openServiceModal(serviceId = null) {
   modal.setAttribute('tabindex', '-1');
   
   modal.innerHTML = `
-    <div class=\"modal-dialog modal-lg modal-dialog-centered\">
-      <div class=\"modal-content\">
-        <div class=\"modal-header\">
-          <h5 class=\"modal-title\">${modalTitle}</h5>
-          <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\"></button>
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">${modalTitle}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
-        <div class=\"modal-body\">
-          <form id=\"serviceForm\">
-            <div class=\"mb-3\">
-              <label class=\"form-label\">Nom du service</label>
-              <input type=\"text\" class=\"form-control\" name=\"name\" required>
+        <div class="modal-body">
+          <form id="serviceForm">
+            <div class="mb-3">
+              <label class="form-label">Nom du service</label>
+              <input type="text" class="form-control" name="name" required>
             </div>
-            <div class=\"row\">
-              <div class=\"col-md-6 mb-3\">
-                <label class=\"form-label\">Type</label>
-                <input type=\"text\" class=\"form-control\" name=\"type\" required>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Type</label>
+                <input type="text" class="form-control" name="type" required>
               </div>
-              <div class=\"col-md-6 mb-3\">
-                <label class=\"form-label\">Prix</label>
-                <input type=\"text\" class=\"form-control\" name=\"price\" placeholder=\"Ex: 20€/h\" required>
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Prix</label>
+                <input type="text" class="form-control" name="price" placeholder="Ex: 20€/h" required>
               </div>
             </div>
-            <div class=\"mb-3\">
-              <label class=\"form-label\">Description</label>
-              <textarea class=\"form-control\" name=\"description\" rows=\"4\" required></textarea>
+            <div class="mb-3">
+              <label class="form-label">Description</label>
+              <textarea class="form-control" name="description" rows="4" required></textarea>
             </div>
-            <div class=\"mb-3\">
-              <label class=\"form-label\">Statut</label>
-              <select class=\"form-select\" name=\"status\" required>
-                <option value=\"active\">Actif</option>
-                <option value=\"inactive\">Inactif</option>
+            <div class="mb-3">
+              <label class="form-label">Statut</label>
+              <select class="form-select" name="status" required>
+                <option value="active">Actif</option>
+                <option value="inactive">Inactif</option>
               </select>
             </div>
           </form>
         </div>
-        <div class=\"modal-footer\">
-          <button class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Annuler</button>
-          <button class=\"btn btn-primary\" onclick=\"saveService(${serviceId})\">
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <button class="btn btn-primary" onclick="saveService(${serviceId})">
             ${isEdit ? 'Mettre à jour' : 'Ajouter'}
           </button>
         </div>
@@ -206,54 +206,54 @@ function openStudentModal(studentId = null) {
   modal.setAttribute('tabindex', '-1');
   
   modal.innerHTML = `
-    <div class=\"modal-dialog modal-lg modal-dialog-centered\">
-      <div class=\"modal-content\">
-        <div class=\"modal-header\">
-          <h5 class=\"modal-title\">${modalTitle}</h5>
-          <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\"></button>
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">${modalTitle}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
-        <div class=\"modal-body\">
-          <form id=\"studentForm\">
-            <div class=\"row\">
-              <div class=\"col-md-6 mb-3\">
-                <label class=\"form-label\">Nom</label>
-                <input type=\"text\" class=\"form-control\" name=\"lastname\" required>
+        <div class="modal-body">
+          <form id="studentForm">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Nom</label>
+                <input type="text" class="form-control" name="lastname" required>
               </div>
-              <div class=\"col-md-6 mb-3\">
-                <label class=\"form-label\">Prénom</label>
-                <input type=\"text\" class=\"form-control\" name=\"firstname\" required>
-              </div>
-            </div>
-            <div class=\"row\">
-              <div class=\"col-md-6 mb-3\">
-                <label class=\"form-label\">Email</label>
-                <input type=\"email\" class=\"form-control\" name=\"email\" required>
-              </div>
-              <div class=\"col-md-6 mb-3\">
-                <label class=\"form-label\">Téléphone</label>
-                <input type=\"tel\" class=\"form-control\" name=\"phone\" required>
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Prénom</label>
+                <input type="text" class="form-control" name="firstname" required>
               </div>
             </div>
-            <div class=\"mb-3\">
-              <label class=\"form-label\">Niveau</label>
-              <select class=\"form-select\" name=\"level\" required>
-                <option value=\"\">Sélectionner...</option>
-                <option value=\"A1\">A1</option>
-                <option value=\"A2\">A2</option>
-                <option value=\"B1\">B1</option>
-                <option value=\"B2\">B2</option>
-                <option value=\"C1\">C1</option>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" name="email" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Téléphone</label>
+                <input type="tel" class="form-control" name="phone" required>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Niveau</label>
+              <select class="form-select" name="level" required>
+                <option value="">Sélectionner...</option>
+                <option value="A1">A1</option>
+                <option value="A2">A2</option>
+                <option value="B1">B1</option>
+                <option value="B2">B2</option>
+                <option value="C1">C1</option>
               </select>
             </div>
-            <div class=\"mb-3\">
-              <label class=\"form-label\">Notes</label>
-              <textarea class=\"form-control\" name=\"notes\" rows=\"3\"></textarea>
+            <div class="mb-3">
+              <label class="form-label">Notes</label>
+              <textarea class="form-control" name="notes" rows="3"></textarea>
             </div>
           </form>
         </div>
-        <div class=\"modal-footer\">
-          <button class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Annuler</button>
-          <button class=\"btn btn-primary\" onclick=\"saveStudent(${studentId})\">
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <button class="btn btn-primary" onclick="saveStudent(${studentId})">
             ${isEdit ? 'Mettre à jour' : 'Ajouter'}
           </button>
         </div>
@@ -320,54 +320,54 @@ function openResourceModal(resourceId = null) {
   modal.setAttribute('tabindex', '-1');
   
   modal.innerHTML = `
-    <div class=\"modal-dialog modal-lg modal-dialog-centered\">
-      <div class=\"modal-content\">
-        <div class=\"modal-header\">
-          <h5 class=\"modal-title\">${modalTitle}</h5>
-          <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\"></button>
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">${modalTitle}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
-        <div class=\"modal-body\">
-          <form id=\"resourceForm\">
-            <div class=\"mb-3\">
-              <label class=\"form-label\">Titre</label>
-              <input type=\"text\" class=\"form-control\" name=\"title\" required>
+        <div class="modal-body">
+          <form id="resourceForm">
+            <div class="mb-3">
+              <label class="form-label">Titre</label>
+              <input type="text" class="form-control" name="title" required>
             </div>
-            <div class=\"row\">
-              <div class=\"col-md-6 mb-3\">
-                <label class=\"form-label\">Catégorie</label>
-                <select class=\"form-select\" name=\"category\" required>
-                  <option value=\"\">Sélectionner...</option>
-                  <option value=\"grammaire\">Grammaire</option>
-                  <option value=\"vocabulaire\">Vocabulaire</option>
-                  <option value=\"exercices\">Exercices</option>
-                  <option value=\"audio\">Audio</option>
-                  <option value=\"video\">Vidéo</option>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Catégorie</label>
+                <select class="form-select" name="category" required>
+                  <option value="">Sélectionner...</option>
+                  <option value="grammaire">Grammaire</option>
+                  <option value="vocabulaire">Vocabulaire</option>
+                  <option value="exercices">Exercices</option>
+                  <option value="audio">Audio</option>
+                  <option value="video">Vidéo</option>
                 </select>
               </div>
-              <div class=\"col-md-6 mb-3\">
-                <label class=\"form-label\">Niveau</label>
-                <select class=\"form-select\" name=\"level\" required>
-                  <option value=\"\">Sélectionner...</option>
-                  <option value=\"A1\">A1</option>
-                  <option value=\"A2\">A2</option>
-                  <option value=\"B1\">B1</option>
-                  <option value=\"A1-A2\">A1-A2</option>
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Niveau</label>
+                <select class="form-select" name="level" required>
+                  <option value="">Sélectionner...</option>
+                  <option value="A1">A1</option>
+                  <option value="A2">A2</option>
+                  <option value="B1">B1</option>
+                  <option value="A1-A2">A1-A2</option>
                 </select>
               </div>
             </div>
-            <div class=\"mb-3\">
-              <label class=\"form-label\">Fichier</label>
-              <input type=\"file\" class=\"form-control\" name=\"file\" ${isEdit ? '' : 'required'}>
+            <div class="mb-3">
+              <label class="form-label">Fichier</label>
+              <input type="file" class="form-control" name="file" ${isEdit ? '' : 'required'}>
             </div>
-            <div class=\"mb-3\">
-              <label class=\"form-label\">Description</label>
-              <textarea class=\"form-control\" name=\"description\" rows=\"3\"></textarea>
+            <div class="mb-3">
+              <label class="form-label">Description</label>
+              <textarea class="form-control" name="description" rows="3"></textarea>
             </div>
           </form>
         </div>
-        <div class=\"modal-footer\">
-          <button class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Annuler</button>
-          <button class=\"btn btn-primary\" onclick=\"saveResource(${resourceId})\">
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <button class="btn btn-primary" onclick="saveResource(${resourceId})">
             ${isEdit ? 'Mettre à jour' : 'Ajouter'}
           </button>
         </div>
@@ -480,3 +480,198 @@ if (socialForm) {
 }
 
 console.log('Admin panel initialized. Ready for Laravel backend integration.');
+/* ============================================ */
+/* LEVEL TESTS MANAGEMENT - Управление тестами уровня */
+/* ============================================ */
+
+/**
+ * Добавить новую строку в таблицу вопросов
+ */
+function addQuestionRow() {
+  const tbody = document.querySelector('#questionsTable tbody');
+  const newRow = document.createElement('tr');
+  
+  newRow.innerHTML = `
+    <td><input type="text" class="form-control form-control-sm" placeholder="Nouvelle question"></td>
+    <td><input type="text" class="form-control form-control-sm" placeholder="Réponse attendue"></td>
+    <td><input type="number" class="form-control form-control-sm" value="1" min="1" max="10"></td>
+    <td>
+      <select class="form-select form-select-sm level-select">
+        <option value="A0">A0</option>
+        <option value="A1" selected>A1</option>
+        <option value="A2">A2</option>
+        <option value="B1">B1</option>
+        <option value="B2">B2</option>
+        <option value="C1">C1</option>
+        <option value="C2">C2</option>
+      </select>
+    </td>
+    <td>
+      <button class="btn-action" title="Modifier">
+        <i class="fas fa-edit"></i>
+      </button>
+      <button class="btn-action" title="Sauvegarder">
+        <i class="fas fa-save"></i>
+      </button>
+      <button class="btn-action btn-danger" title="Supprimer" onclick="deleteQuestionRow(this)">
+        <i class="fas fa-trash"></i>
+      </button>
+    </td>
+  `;
+  
+  tbody.appendChild(newRow);
+}
+
+/**
+ * Удалить строку из таблицы вопросов
+ * @param {Element} button - Кнопка удаления
+ */
+function deleteQuestionRow(button) {
+  const row = button.closest('tr');
+  if (confirm('Êtes-vous sûr de vouloir supprimer cette question?')) {
+    row.remove();
+  }
+}
+
+/**
+ * Добавить новую строку в таблицу уровней
+ */
+function addLevelRow() {
+  const tbody = document.querySelector('#levelsTable tbody');
+  const newRow = document.createElement('tr');
+  
+  // Найти максимальное значение для min
+  const existingRows = tbody.querySelectorAll('tr');
+  let maxMinValue = 0;
+  existingRows.forEach(row => {
+    const minInput = row.querySelector('td:first-child input');
+    if (minInput) {
+      const value = parseInt(minInput.value) || 0;
+      if (value > maxMinValue) maxMinValue = value;
+    }
+  });
+  
+  const newMin = maxMinValue + 1;
+  const newMax = newMin + 19;
+  
+  newRow.innerHTML = `
+    <td>
+      <input type="number" class="form-control form-control-sm" value="${newMin}" min="0" max="100">
+    </td>
+    <td>
+      <input type="number" class="form-control form-control-sm" value="${newMax}" min="0" max="100">
+    </td>
+    <td>
+      <select class="form-select form-select-sm level-select">
+        <option value="A0">A0</option>
+        <option value="A1">A1</option>
+        <option value="A2">A2</option>
+        <option value="B1">B1</option>
+        <option value="B2" selected>B2</option>
+        <option value="C1">C1</option>
+        <option value="C2">C2</option>
+      </select>
+    </td>
+    <td><input type="text" class="form-control form-control-sm" placeholder="Message de résultat"></td>
+    <td>
+      <button class="btn-action" title="Modifier">
+        <i class="fas fa-edit"></i>
+      </button>
+      <button class="btn-action" title="Sauvegarder">
+        <i class="fas fa-save"></i>
+      </button>
+      <button class="btn-action btn-danger" title="Supprimer" onclick="deleteLevelRow(this)">
+        <i class="fas fa-trash"></i>
+      </button>
+    </td>
+  `;
+  
+  tbody.appendChild(newRow);
+}
+
+/**
+ * Удалить строку из таблицы уровней
+ * @param {Element} button - Кнопка удаления
+ */
+function deleteLevelRow(button) {
+  const row = button.closest('tr');
+  if (confirm('Êtes-vous sûr de vouloir supprimer ce niveau?')) {
+    row.remove();
+  }
+}
+
+/**
+ * Сохранить все изменения тестов
+ */
+function saveAllTests() {
+  // TODO: Backend integration
+  // Собрать данные из обеих таблиц и отправить на сервер
+  
+  const questionsData = [];
+  const levelsData = [];
+  
+  // Собрать данные вопросов
+  document.querySelectorAll('#questionsTable tbody tr').forEach(row => {
+    const question = row.cells[0].querySelector('input').value;
+    const answer = row.cells[1].querySelector('input').value;
+    const points = row.cells[2].querySelector('input').value;
+    const level = row.cells[3].querySelector('select').value;
+    
+    questionsData.push({
+      question,
+      answer,
+      points: parseInt(points),
+      level
+    });
+  });
+  
+  // Собрать данные уровней
+  document.querySelectorAll('#levelsTable tbody tr').forEach(row => {
+    const min = row.cells[0].querySelector('input').value;
+    const max = row.cells[1].querySelector('input').value;
+    const level = row.cells[2].querySelector('select').value;
+    const message = row.cells[3].querySelector('input').value;
+    
+    levelsData.push({
+      min_score: parseInt(min),
+      max_score: parseInt(max),
+      level,
+      message
+    });
+  });
+  
+  console.log('Questions data:', questionsData);
+  console.log('Levels data:', levelsData);
+  
+  alert('Tests sauvegardés avec succès! (Backend integration required)');
+  
+  // TODO: Отправить данные на сервер через AJAX
+  /*
+  fetch('/api/save-tests', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      questions: questionsData,
+      levels: levelsData
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    alert('Tests sauvegardés avec succès!');
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('Erreur lors de la sauvegarde');
+  });
+  */
+}
+
+// Добавить обработчик события для кнопки сохранения
+document.addEventListener('DOMContentLoaded', function() {
+  const saveButton = document.querySelector('.btn-primary.btn-lg');
+  if (saveButton) {
+    saveButton.addEventListener('click', saveAllTests);
+  }
+});
